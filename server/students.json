@@ -1,8 +1,162 @@
-{
-"id":1,
-"firstname":"Mathieu",
-"lastname":"Chedid",
-"class":"6ème3",
-"email":"mathieu.chedid@yahoo.fr",
-"password":"pythagore"
-}
+[
+    {
+        "id": 1,
+        "firstname": "Mathieu",
+        "lastname": "Chedid",
+        "class": "6ème3",
+        "email": "mathieu.chedid@yahoo.fr",
+        "password": "pythagore"
+    },
+    {
+        "id": 2,
+        "firstname": "Julie",
+        "lastname": "Grasset",
+        "class": "6ème 3",
+        "email": "julie.grasset@yahoo.fr",
+        "password": "piano"
+    },
+    {
+        "id": 3,
+        "firstname": "Tom",
+        "lastname": "Sawyer",
+        "class": "6ème 3",
+        "email": "tom.sawyer@yahoo.fr",
+        "password": "aventure"
+    },
+    {
+        "id": 4,
+        "firstname": "Marina",
+        "lastname": "Azira",
+        "class": "6ème 3",
+        "email": "marine.azira@yahoo.fr",
+        "password": "clown"
+    },
+    {
+        "id": 5,
+        "firstname": "Nadia",
+        "lastname": "Marin",
+        "class": "6ème 3",
+        "email": "nadia.marin@yahoo.fr",
+        "password": "chimie"
+    },
+    {
+        "id": 6,
+        "firstname": "Henri",
+        "lastname": "James",
+        "class": "6ème 3",
+        "email": "henri.james@yahoo.fr",
+        "password": "echecs"
+    },
+    {
+        "id": 7,
+        "firstname": "Carla",
+        "lastname": "Antonino",
+        "class": "6ème 3",
+        "email": "carla.antonino@yahoo.fr",
+        "password": "sport"
+    },
+    {
+        "id": 8,
+        "firstname": "Abel",
+        "lastname": "Zohra",
+        "class": "6ème 3",
+        "email": "abel.zohra@yahoo.fr",
+        "password": "lecture"
+    },
+    {
+        "id": 9,
+        "firstname": "Mélodie",
+        "lastname": "Armand",
+        "class": "6ème 3",
+        "email": "melodie.armand@yahoo.fr",
+        "password": "jeux"
+    },
+    {
+        "id": 10,
+        "firstname": "Alban",
+        "lastname": "Denisot",
+        "class": "6ème 3",
+        "email": "alban.denisot@yahoo.fr",
+        "password": "dessin"
+    },
+    {
+        "id": 11,
+        "firstname": "Amelle",
+        "lastname": "Azedine",
+        "class": "6ème 3",
+        "email": "amelle.azedine@yahoo.fr",
+        "password": "informatique"
+    },
+    {
+        "id": 12,
+        "firstname": "Ashton",
+        "lastname": "Jameson",
+        "class": "6ème 3",
+        "email": "ashton.jameson@yahoo.fr",
+        "password": "anglais"
+    },
+    {
+        "id": 13,
+        "firstname": "Susan",
+        "lastname": "Olivier",
+        "class": "6ème 3",
+        "email": "susan.olivier@yahoo.fr",
+        "password": "foot"
+    },
+    {
+        "id": 14,
+        "firstname": "Margot",
+        "lastname": "Tanguy",
+        "class": "6ème 3",
+        "email": "margot.tanguy@yahoo.fr",
+        "password": "gym"
+    },
+    {
+        "id": 15,
+        "firstname": "Grégoire",
+        "lastname": "Gosselin",
+        "class": "6ème 3",
+        "email": "gregoire.gosselin@yahoo.fr",
+        "password": "art"
+    },
+    {
+        "id": 16,
+        "firstname": "Nicole",
+        "lastname": "Cordier",
+        "class": "6ème 3",
+        "email": "nicole.cordier@yahoo.fr",
+        "password": "boxe"
+    },
+    {
+        "id": 17,
+        "firstname": "Charles",
+        "lastname": "Briand",
+        "class": "6ème 3",
+        "email": "charles.briand@yahoo.fr",
+        "password": "technologie"
+    },
+    {
+        "id": 18,
+        "firstname": "Cécile",
+        "lastname": "Bonnet",
+        "class": "6ème 3",
+        "email": "cecile.bonnet@yahoo.fr",
+        "password": "tricot"
+    },
+    {
+        "id": 19,
+        "firstname": "Christophe",
+        "lastname": "Hubert",
+        "class": "6ème 3",
+        "email": "christophe.hubert@yahoo.fr",
+        "password": "cirque"
+    },
+    {
+        "id": 20,
+        "firstname": "Margaret",
+        "lastname": "Lebrun",
+        "class": "6ème 3",
+        "email": "margaret.lebrun@yahoo.fr",
+        "password": "voile"
+    }
+]
