@@ -1,8 +1,8 @@
 {
-    "id": 1,
-    "firstname": "Mathieu",
-    "lastname": "Chedid",
-    "class": "6ème 3",
-    "email": "mathieu.chedid@yahoo.fr",
-    "password": "pythagore"
+"id":1,
+"firstname":"Mathieu",
+"lastname":"Chedid",
+"class":"6ème3",
+"email":"mathieu.chedid@yahoo.fr",
+"password":"pythagore"
 }
