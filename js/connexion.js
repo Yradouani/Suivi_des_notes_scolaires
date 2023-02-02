@@ -20,6 +20,11 @@ connectTeacherBtn.addEventListener("click", () => {
                     console.log("adresse mail connue");
                     if (xmlDoc[i].password == teacherPassword.value) {
                         console.log("connexion validée");
+                        let infos = {
+                            id: xmlDoc[i].id,
+                            type: "teacher"
+                        };
+                        localStorage.setItem("userInfo", JSON.stringify(infos))
                         window.location.href = "../teacher.html";
                         break;
                     } else {
@@ -54,6 +59,11 @@ connectStudentBtn.addEventListener("click", () => {
                     if (xmlDoc[i].password == studentPassword.value) {
                         console.log("connexion validée");
                         window.location.href = "../student.html";
+                        let infos = {
+                            id: xmlDoc[i].id,
+                            type: "student"
+                        };
+                        localStorage.setItem("userInfo", JSON.stringify(infos))
                         break;
                     } else {
                         console.log("mot de passe erroné");
