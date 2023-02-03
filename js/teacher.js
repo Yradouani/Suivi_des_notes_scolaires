@@ -11,7 +11,7 @@ xhr.onreadystatechange = function () {
         for (let i = 0; i < xmlDoc.length; i++) {
             console.log(xmlDoc[i].picture)
             studentsCardsContent.innerHTML += `
-            <div class="card">
+            <div class="cards">
                 <img src=${xmlDoc[i].picture} alt="">
                 <span class="name">${xmlDoc[i].firstname} ${xmlDoc[i].lastname}</span>
                 <div class="btn-container">
