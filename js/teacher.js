@@ -35,6 +35,7 @@ xhr.onreadystatechange = function () {
                 let validateGradeBtn = document.querySelector(".add-grade-btn");
                 validateGradeBtn.addEventListener("click", () => {
                     let type = document.querySelector("#eval-choice");
+                    let subject = document.querySelector("#subject");
                     let dateInput = document.querySelector("#date");
                     let gradeInput = document.querySelector("#grade");
                     let commentInput = document.querySelector("#comment");
@@ -53,11 +54,22 @@ xhr.onreadystatechange = function () {
                                 "date": dateInput.value,
                                 "type": type.value,
                                 "id_student": j + 1,
-                                "subject": "Histoire",
+                                "subject": subject.value,
                                 "comments": commentInput.value
                             }
-                            console.log(gradeInfo)
-                            console.log(type.value, dateInput.value, gradeInput.value, commentInput.value)
+
+                            // Envoi de la requête au serveur
+                            fetch("http://127.0.0.1:8000/json.php",
+                                {
+                                    method: "POST",
+                                    headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" },
+                                    body: "content=" + JSON.stringify(gradeInfo) + "&create=true"
+                                }).then((res) => {
+                                    console.log(res)
+                                }).catch((err) => {
+                                    console.log(err)
+                                })
+
                         }
                     }
                     xhr2.send();
