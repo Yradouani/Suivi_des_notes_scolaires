@@ -15,7 +15,7 @@ xhr.onreadystatechange = function () {
                 <img src=${xmlDoc[i].picture} alt="">
                 <span class="name">${xmlDoc[i].firstname} ${xmlDoc[i].lastname}</span>
                 <div class="btn-container">
-                    <button class="add-btn">Ajouter une note</button>
+                    <button class="add-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ajouter une note</button>
                     <button class="grade-btn"><a href="../student.html">Voir le bulletin</a></button>
                 </div>
             </div>
