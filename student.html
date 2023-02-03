@@ -5,16 +5,89 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Bootstrap links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Our CSS -->
     <link rel="stylesheet" href="/styles/modal.css">
-    <title>Student</title>
+    <link rel="stylesheet" href="./styles/student.css">
+    <link rel="stylesheet" href="./styles/extensions.css">
+    <title>Student page</title>
 </head>
 
-<body>
-    <h1>Je suis sur la page élève</h1>
+<body class="mw-100 min-vh-100">
+
+    <header class="d-flex flex-md-row justify-content-between align-items-center p-2 h-25">
+         <img src="./assets/logo.png"  alt="logoSite" class="img-fluid">   
+            <div class="transparent_bg d-flex h-25 p-2 align-items-center justify-content-around">
+                <p id="motto" class="text-light"> Discere fasciendo est vera doctrina</p>
+            </div>       
+            <img src="./assets/boy2.jpg" alt="student picture" class="img-fluid rounded-circle w-25"> 
+        <button id="logoutBtn" class="">
+            <i class="bi bi-x-circle-fill text-danger"  class="img-fluid" style="font-size:50px"></i>
+        </button>      
+    </header>
+
+    <div class="paper m-2 py-3">
+      <div class="paper paper--alt"></div>
+        <div class="containerTable p-2">
+        <div id="table_title" class="pinkLine d-flex justify-content-around p-3">
+            <a href="#" class="falseLinks">1er trimestre</a>
+            <a href="#" class="falseLinks">2ème trimestre</a>
+            <a href="#"class="falseLinks">3ème trimestre</a>
+            <!-- Vers modal -->
+            <button type="btn">Ma progression sur l'année</button>
+        </div>
+        <table class="table">
+            <thead>
+            <tr class="whiteLine">
+                <th scope="col">Disciplines</th>
+                <th scope="col">Coef</th>
+                <th scope="col">Moyennes</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Graphiques</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="pinkLine">
+                <th scope="row">Français</th>
+                <td class="type_eval_coef"> écrit :</td>
+                <td class="average">13</td>
+                <td class="marks">13</td>
+                <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
+            </tr>
+            <tr class="whiteLine">
+                <th scope="row">Anglais</th>
+                <td class="type_eval_coef"> écrit :</td>
+                <td class="average">14</td>
+                <td class="marks">14</td>
+                <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
+            </tr>
+            <tr  class="pinkLine">
+                <th scope="row">Histoire</th>
+                <td class="type_eval_coef"> écrit :</td>
+                <td class="average">13</td>
+                <td class="marks">13</td>
+                <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
+            </tr>
+            <tr class="whiteLine">
+                <th scope="row">Mathématiques</th>
+                <td class="type_eval_coef"> écrit :</td>
+                <td class="average">13</td>
+                <td class="marks">13</td>
+                <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
+            </tr>
+            <tr class="pinkLine">
+                <th scope="row">Physique</th>
+                <td class="type_eval_coef"> écrit :</td>
+                <td class="average">13</td>
+                <td class="marks">13</td>
+                <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
     <!-- MODAL DETAIL GRADE -->
     <!-- Button trigger modal -->
@@ -69,9 +142,17 @@
 
     <!--END MODAL DETAIL GRADE -->
 
-</body>
+    <footer class="d-flex justify-content-around align-items-center">
+      
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
-
+</body>
 </html>
