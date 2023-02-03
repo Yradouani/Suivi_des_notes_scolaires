@@ -1,0 +1,27 @@
+header {
+    background-image: url(../assets/school-top.jpg);
+    background-position: right;
+    background-size: cover;
+}
+
+.studentPicture {
+    border: solid red 2px;
+    width: 15%;
+    border-radius: 50%;
+}
+
+#logoutBtn {
+    border: none;
+    background-color: transparent;
+}
+
+footer {
+    background: url(../assets/school-bottom.jpg);
+    background-position: right;
+    background-size: cover;
+    height: 10vh;
+}
+
+.footerText {
+    color: red;
+}

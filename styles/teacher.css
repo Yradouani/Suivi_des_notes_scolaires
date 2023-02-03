@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+}
+
+#header-img {
+    width: 100%;
+}
+
+#students-cards-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    justify-content: space-around;
+}
+
+.card {
+    width: 20%;
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+.card img {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.name {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 15px auto;
+    font-size: 20px;
+}
+
+.btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 10px auto;
+}
+
+.add-btn {
+    background: #DDB2A7;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.grade-btn {
+    background: #8D9DBF;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.grade-btn a {
+    text-decoration: none;
+    color: inherit;
+}
