@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+header {
+    background-image: url(../assets/school-top.jpg);
+    background-position: right;
+    background-size: cover;
+}
+
+.studentPicture {
+    border: solid red 2px;
+    width: 15%;
+    border-radius: 50%;
+}
+
+#motto {
+    font-family: 'Aboreto', cursive;
+    font-size: 25px;
+}
+
+#logoutBtn {
+    border: none;
+    background-color: transparent;
+}
+
+footer {
+    background: url(../assets/school-bottom.jpg);
+    background-position: right;
+    background-size: cover;
+    height: 10vh;
+}
+
+.footerText {
+    color: red;
+}

@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+}
+
+#header-img {
+    width: 100%;
+}
+
+#students-cards-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    justify-content: space-around;
+}
+
+.cards {
+    width: 22%;
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+.cards img {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.name {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 15px auto;
+    font-size: 20px;
+}
+
+.btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 10px auto;
+}
+
+.add-btn {
+    background: #DDB2A7;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.grade-btn {
+    background: #8D9DBF;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.grade-btn a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.transparent_bg {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    border: 1px solid;
+    width: 700px;
+}
+
+.logo {
+    height: 150px;
+}
+
+#picAndLogout img {
+    width: 120px;
+    margin-right: 100px;
+}
+
+#name-content {
+    text-align: center;
+}
+
+#picAndLogout {
+    width: 120px;
+}
+
+@media (max-width:1100px) {
+    .card {
+        width: 30%;
+    }
+}
+
+@media (max-width:900px) {
+    .card {
+        width: 40%;
+    }
+}
+
+@media (max-width:720px) {
+    .card {
+        width: 48%;
+    }
+}
+
+@media (max-width:600px) {
+    .card {
+        width: 60%;
+    }
+}
+
+@media (max-width:500px) {
+    .card {
+        width: 70%;
+    }
+}
+
+@media (max-width:420px) {
+    .card {
+        width: 80%;
+    }
+}
