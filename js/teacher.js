@@ -56,3 +56,12 @@ deconnectionBtn.addEventListener("click", () => {
     localStorage.removeItem('userInfo');
     window.location.href = "../index.html";
 })
+
+// Ajouter une note
+let addGradeButtons = document.querySelectorAll(".add-btn");
+
+for(let j = 0; j<addGradeButtons.length; j++){
+    addGradeButtons[j].addEventListener("click", () => {
+        
+    })
+}
