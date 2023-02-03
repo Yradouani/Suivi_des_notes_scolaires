@@ -39,10 +39,8 @@ xhr1.onreadystatechange = function () {
             if (xmlDoc[i].id == userInfo.id) {
                 document.querySelector("#picAndLogout").innerHTML += `
                         <img src=${xmlDoc[i].picture} alt="student picture" class="img-fluid rounded-circle">
-                        <button id="logoutBtn">
-                            <i class="bi bi-x-circle-fill text-danger" class="img-fluid"
-                                style="font-size:50px"></i>
-                        </button>
+                        <div id="name-content">${xmlDoc[i].firstname} ${xmlDoc[i].lastname}</div>
+                        
                         `
             }
         }
@@ -60,8 +58,17 @@ deconnectionBtn.addEventListener("click", () => {
 // Ajouter une note
 let addGradeButtons = document.querySelectorAll(".add-btn");
 
-for(let j = 0; j<addGradeButtons.length; j++){
+for (let j = 0; j < addGradeButtons.length; j++) {
     addGradeButtons[j].addEventListener("click", () => {
-        
+
+    })
+}
+
+// Voir le bulletin de l'élève
+let watchGradeButtons = document.querySelectorAll(".grade-btn");
+
+for (let j = 0; j < watchGradeButtons.length; j++) {
+    watchGradeButtons[j].addEventListener("click", () => {
+
     })
 }

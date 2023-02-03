@@ -65,15 +65,34 @@ body {
     color: inherit;
 }
 
+.transparent_bg {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    border: 1px solid;
+    width: 700px;
+}
+
+.logo {
+    height: 150px;
+}
+
 #picAndLogout img {
-    width: 150px;
+    width: 120px;
     margin-right: 100px;
 }
 
+#name-content {
+    text-align: center;
+}
+
+#picAndLogout {
+    width: 120px;
+}
+
 #logoutBtn {
-    position: absolute;
+    /* position: absolute;
     top: 10px;
-    right: 20px;
+    right: 20px; */
 }
 
 @media (max-width:1100px) {
@@ -81,26 +100,31 @@ body {
         width: 30%;
     }
 }
+
 @media (max-width:900px) {
     .card {
         width: 40%;
     }
 }
+
 @media (max-width:720px) {
     .card {
         width: 48%;
     }
 }
+
 @media (max-width:600px) {
     .card {
         width: 60%;
     }
 }
+
 @media (max-width:500px) {
     .card {
         width: 70%;
     }
 }
+
 @media (max-width:420px) {
     .card {
         width: 80%;
