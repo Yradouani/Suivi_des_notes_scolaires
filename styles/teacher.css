@@ -77,32 +77,32 @@ body {
 }
 
 @media (max-width:1100px) {
-    .card {
+    .cards {
         width: 30%;
     }
 }
 @media (max-width:900px) {
-    .card {
+    .cards{
         width: 40%;
     }
 }
 @media (max-width:720px) {
-    .card {
+    .cards {
         width: 48%;
     }
 }
 @media (max-width:600px) {
-    .card {
+    .cards {
         width: 60%;
     }
 }
 @media (max-width:500px) {
-    .card {
+    .cards {
         width: 70%;
     }
 }
 @media (max-width:420px) {
-    .card {
+    .cards {
         width: 80%;
     }
 }

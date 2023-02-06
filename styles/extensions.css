@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
 header {
     background-image: url(../assets/school-top.jpg);
     background-position: right;
@@ -10,9 +12,38 @@ header {
     border-radius: 50%;
 }
 
+#motto {
+    font-family: 'Aboreto', cursive;
+    font-size: 25px;
+}
+
 #logoutBtn {
     border: none;
     background-color: transparent;
+}
+
+.transparent_bg {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    border: 1px solid;
+    width: 700px;
+}
+
+.logo {
+    height: 150px;
+}
+
+#picAndLogout img {
+    width: 120px;
+    margin-right: 100px;
+}
+
+#name-content {
+    text-align: center;
+}
+
+#picAndLogout {
+    width: 120px;
 }
 
 footer {
