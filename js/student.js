@@ -41,33 +41,72 @@ if (typeUser == "student") {
       var xmlDoc1 = JSON.parse(xhr1.response);
       // console.log(xmlDoc1);
 
+      let mathGrades = [];
+      let historyGrades = [];
+      let englishGrades = [];
+      let physiqueGrades = [];
+      let frenchGrades = [];
+      let coefmath = null;
+      let coeffrench = null;
+      let coefenglish = null;
+      let coefphysique = null;
+      let coefhistory = null;
       for (let i = 0; i < xmlDoc1.length; i++) {
         // console.log(xmlDoc1[i].value);
         if (xmlDoc1[i].id_student == idStudent) {
-          if (i % 2 == 0) {
-            studentReport.innerHTML += `
-      <tr class="pinkLine">
-      <th scope="row">${xmlDoc1[i].subject}</th>
-      <td class="type_eval_coef">${xmlDoc1[i].type}</td>
-      <td class="average">(moyenne à calculer)</td>
-      <td class="marks">${xmlDoc1[i].value} "$nbsp"</td>
-      <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link"
-                  width="70"></a></td>
-  </tr>
-          `;
-          } else {
-            studentReport.innerHTML += `
-          <tr class="whiteLine">
-          <th scope="row">${xmlDoc1[i].subject}</th>
-          <td class="type_eval_coef">${xmlDoc1[i].type}</td>
-          <td class="average">(moyenne à calculer)</td>
-          <td class="marks">${xmlDoc1[i].value}</td>
-          <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link"
-                      width="70"></a></td>
-      </tr>
-              `;
+          // if (i % 2 == 0) {
+
+
+          switch (xmlDoc1[i].subject) {
+            case 'Mathématiques':
+              mathGrades.push(xmlDoc1[i].value)
+              if (!coefmath) {
+                document.querySelector(".maths").innerHTML += `<td class="coef-content-math"></td>`;
+                coefmath = true
+              }
+              document.querySelector(".coef-content-math").innerHTML += `${xmlDoc1[i].coef}`
+              break;
+            case 'Histoire':
+              historyGrades.push(xmlDoc1[i].value)
+              if(!coefhistory){
+                document.querySelector(".history").innerHTML += `<td class="coef-content-history"></td>`;
+                coefhistory = true
+              }
+              document.querySelector(".coef-content-history").innerHTML += `${xmlDoc1[i].coef}`
+              break;
+            case 'Anglais':
+              englishGrades.push(xmlDoc1[i].value)
+              break;
+            case 'Physique':
+              physiqueGrades.push(xmlDoc1[i].value)
+              break;
+            case 'Français':
+              frenchGrades.push(xmlDoc1[i].value)
+              break;
+            default:
+              console.log(`Sorry, we are out of ${expr}.`);
           }
         }
+      }
+      let tdMath = null
+      for (let j = 0; j < mathGrades.length; j++) {
+        if (!tdMath) {
+          document.querySelector(".maths").innerHTML += `<td class="grade-content"></td>`;
+          tdMath = true;
+        }
+        document.querySelector(".grade-content").innerHTML += `<button>${mathGrades[j]}</button>`
+      }
+      for (let j = 0; j < frenchGrades.length; j++) {
+        document.querySelector(".french").innerHTML += `<button>${frenchGrades[j]}</button>`
+      }
+      for (let j = 0; j < englishGrades.length; j++) {
+        document.querySelector(".english").innerHTML += `<button>${englishGrades[j]}</button>`
+      }
+      for (let j = 0; j < physiqueGrades.length; j++) {
+        document.querySelector(".physique").innerHTML += `<button>${physiqueGrades[j]}</button>`
+      }
+      for (let j = 0; j < historyGrades.length; j++) {
+        document.querySelector(".history").innerHTML += `<button>${historyGrades[j]}</button>`
       }
     }
   };
@@ -139,6 +178,8 @@ if (typeUser == "student") {
           }
         }
       }
+
+      // Display student name on h1
       var xhr4 = new XMLHttpRequest();
       xhr4.open("GET", "../server/students.json", true);
       xhr4.onreadystatechange = function () {
