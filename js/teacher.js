@@ -12,6 +12,8 @@ xhr.onreadystatechange = function () {
 
     for (let i = 0; i < xmlDoc.length; i++) {
       console.log(xmlDoc[i].picture);
+      let id = xmlDoc[i].id;
+      console.log(id);
       studentsCardsContent.innerHTML += `
             <div class="cards">
                 <img src=${xmlDoc[i].picture} alt="">
@@ -19,13 +21,12 @@ xhr.onreadystatechange = function () {
                 <div class="btn-container">
                     <button class="add-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ajouter une note</button>
                     <button class="grade-btn">
-                    <a href="../student.html?id=${xmlDoc[i].id}">
+                    <a href="../student.html?id=${id}">
                     Voir le bulletin
                     </a>
                     </button>
                 </div>
-            </div>
-            `;
+            </div>`;
     }
 
     // Ajouter une note
@@ -74,6 +75,33 @@ xhr.onreadystatechange = function () {
                 .catch((err) => {
                   console.log(err);
                 });
+            }
+          };
+          xhr2.send();
+
+          var xhr2 = new XMLHttpRequest();
+          xhr2.open("GET", "../server/grades.json", true);
+          xhr2.onreadystatechange = function () {
+            if (xhr2.readyState === 4 && xhr2.status === 200) {
+              var xmlGrade = JSON.parse(xhr2.response);
+              var gradesNumber = xmlGrade.length;
+
+              let gradeInfo = {
+                id: gradesNumber + 1,
+                value: gradeInput.value,
+                date: dateInput.value,
+                type: type.value,
+                id_student: j + 1,
+                subject: "Histoire",
+                comments: commentInput.value,
+              };
+              console.log(gradeInfo);
+              console.log(
+                type.value,
+                dateInput.value,
+                gradeInput.value,
+                commentInput.value
+              );
             }
           };
           xhr2.send();

@@ -1,7 +1,8 @@
+//--------Displaying student picture--------------
+
 let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 let typeUser = userInfo.type;
-const urlParams = new URLSearchParams(window.location.search);
-const paramValue = urlParams.get("id");
+
 console.log(typeUser);
 
 // Student datas displayed if user connected is a student
@@ -20,6 +21,10 @@ if (typeUser == "student") {
           document.querySelector("#picAndLogout").innerHTML += `
                         <img src=${xmlDoc[i].picture} alt="student picture" class="img-fluid rounded-circle">
                         <div id="name-content">${xmlDoc[i].firstname} ${xmlDoc[i].lastname}</div>`;
+
+          document.querySelector(
+            "h1"
+          ).innerHTML = `Bulletin de ${xmlDoc[i].firstname} ${xmlDoc[i].lastname}`;
         }
       }
     }
@@ -97,6 +102,10 @@ if (typeUser == "student") {
   // Displaying school report of the student
   let studentReport = document.querySelector("#studentReport");
   var xhr3 = new XMLHttpRequest();
+  const urlParams = new URLSearchParams(window.location.search);
+  console.log(window.location.search);
+  const paramValue = urlParams.get("id");
+  console.log(paramValue);
 
   xhr3.open("GET", "../server/grades.json", true);
   xhr3.onreadystatechange = function () {
