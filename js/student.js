@@ -21,6 +21,8 @@ if (typeUser == "student") {
           document.querySelector("#picAndLogout").innerHTML += `
                         <img src=${xmlDoc[i].picture} alt="student picture" class="img-fluid rounded-circle">
                         <div id="name-content">${xmlDoc[i].firstname} ${xmlDoc[i].lastname}</div>`;
+
+          document.querySelector("h1").innerHTML = `Bulletin de ${xmlDoc[i].firstname} ${xmlDoc[i].lastname}`
         }
       }
     }
@@ -99,6 +101,7 @@ if (typeUser == "student") {
   let studentReport = document.querySelector("#studentReport");
   var xhr3 = new XMLHttpRequest();
   const urlParams = new URLSearchParams(window.location.search);
+  console.log(window.location.search)
   const paramValue = urlParams.get("id");
   console.log(paramValue);
 
