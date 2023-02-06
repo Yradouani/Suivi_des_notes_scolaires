@@ -7,6 +7,8 @@ xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
         var xmlDoc = JSON.parse(xhr.response);
         console.log(xmlDoc);
+        let lastId = xmlDoc[xmlDoc.length];
+        console.log("le dernier id est : " + lastId)
 
         for (let i = 0; i < xmlDoc.length; i++) {
             console.log(xmlDoc[i].picture)
@@ -24,6 +26,7 @@ xhr.onreadystatechange = function () {
                 </div>
             </div>
             `
+            
         }
 
         // Ajouter une note
