@@ -114,7 +114,6 @@ if (typeUser == "student") {
       for (let i = 0; i < xmlDoc3.length; i++) {
         // console.log(JSON.stringify(xmlDoc1[i].id_student));
         if (JSON.stringify(xmlDoc3[i].id_student) == paramValue) {
-          console.log("coucou");
           if (i % 2 == 0) {
             studentReport.innerHTML += `
               <tr class="pinkLine">
@@ -140,10 +139,29 @@ if (typeUser == "student") {
           }
         }
       }
-    }
-  };
+      var xhr4 = new XMLHttpRequest();
+      xhr4.open("GET", "../server/students.json", true);
+      xhr4.onreadystatechange = function () {
+        if (xhr4.readyState === 4 && xhr4.status === 200) {
+          console.log("Salut")
+          var xmlDoc4 = JSON.parse(xhr4.response);
+          console.log(xmlDoc4);
+
+          for (let i = 0; i < xmlDoc4.length; i++) {
+            if (xmlDoc4[i].id == paramValue) {
+              console.log("Salut")
+              document.querySelector("h1").innerHTML = `Bulletin de ${xmlDoc4[i].firstname} ${xmlDoc4[i].lastname}`
+            }
+          }
+        };
+      }
+      xhr4.send();
+    };
+  }
+  xhr3.send();
 }
-xhr3.send();
+
+
 
 // --------------Logout------------------
 let deconnectionBtn = document.querySelector("#logoutBtn");
