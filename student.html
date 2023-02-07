@@ -54,10 +54,8 @@
         </div>
     </header>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Bouton sur la note
-    </button>
+    <!-- Scholar report -->
+
     <h1 class="text-center my-4"></h1>
 
     <div class="paper m-2 py-3">
@@ -82,7 +80,7 @@
                 </thead>
                 <tbody id="studentReport">
                     <!-- Scholar report dynamically inserted with JS -->
-                    <tr class="pinkLine maths">
+                    <tr class="pinkLine maths" id="Mathématiques">
                         <th scope="row">Mathématiques</th>
                         <!-- <td class="coef"></td>
                         <td class="average"></td> -->
@@ -90,16 +88,16 @@
                         <!-- <td class="graph"><a href=""><img src="./assets/stats.jpg" alt="graph_link"
                             width="70"></a></td>                       -->
                     </tr>
-                    <tr class="pinkLine french">
+                    <tr class="whiteLine french" id="Français">
                         <th scope="row">Français</th>
                     </tr>
-                    <tr class="pinkLine english">
+                    <tr class="pinkLine english" id="Anglais">
                         <th scope="row">Anglais</th>
                     </tr>
-                    <tr class="pinkLine physique">
+                    <tr class="whiteLine physique" id="Physique">
                         <th scope="row">Physique</th>
                     </tr>
-                    <tr class="pinkLine history">
+                    <tr class="pinkLine history" id="Histoire">
                         <th scope="row">Histoire</th>
                     </tr>
                 </tbody>
@@ -109,11 +107,6 @@
 
     <!-- Modal -->
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Bouton sur la note
-        </button>
-    
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -128,26 +121,23 @@
                     <div class="card">
                         <div class="card-details">
                             <i class="bi bi-book"></i>
-                            <div class="card-about">
+                            <div class="card-about" id="modal">
                                 <div class="item">
-                                    <span class="label">Type de l'évaluation</span>
-                                    <span class="value">??</span>
-
-                                </div>
-                                <div class="item">
-                                    <span class="label">Date</span>
-                                    <span class="value">??</span>
-
-                                </div>
-                                <div class="item">
-                                    <span class="label">Ma note</span>
-                                    <span class="value">??</span>
-
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <span class="value">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Perspiciatis at eligendi mollitia nihil ratione porro? </span>
+                                    //                     <span class="label">Type de l'évaluation</span>
+                                    //                     <span class="value" id="type"> </span>
+                                    //                 </div>
+                                    //                 <div class="item">
+                                    //                     <span class="label">Date</span>
+                                    //                     <span class="value" id="date"> </span>
+                                    //                </div>
+                                    //                 <div class="item">
+                                    //                     <span class="label">Ma note</span>
+                                    //                     <span class="value" id="grade"> </span>
+                                    //                 </div>
+                                    //                 <div class="comment">
+                                    //                     <span class="label">Commentaire</span>
+                                    //                     <span class="value" id="comment"></span>
+                                    //                 </div>
                             </div>
                         </div>
                         <div class="tape-section"></div>
@@ -175,6 +165,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <script src="./js/student.js"></script>
+    <script src="./js/modals.js"></script>
 
 </body>
 

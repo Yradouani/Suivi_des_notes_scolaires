@@ -58,57 +58,83 @@ if (typeUser == "student") {
         if (xmlDoc1[i].id_student == idStudent) {
           // if (i % 2 == 0) {
 
-
           switch (xmlDoc1[i].subject) {
-            case 'Mathématiques':
-              mathGrades.push(xmlDoc1[i].value)
+            case "Mathématiques":
+              // let idGrade = xmlDoc1[i].id;
+              // let newGrade = xmlDoc1[i].value;
+              mathGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
+              console.log(mathGrades);
+              // mathGrades.push({ idGrade: newGrade });
               if (!coefmath) {
-                document.querySelector(".maths").innerHTML += `<td class="coef-content-math"></td>`;
-                coefmath = true
+                document.querySelector(
+                  ".maths"
+                ).innerHTML += `<td class="coef-content-math"></td>`;
+                coefmath = true;
               }
-              document.querySelector(".coef-content-math").innerHTML += `${xmlDoc1[i].coef}`
+              document.querySelector(
+                ".coef-content-math"
+              ).innerHTML += `${xmlDoc1[i].coef}`;
+
               break;
-            case 'Histoire':
-              historyGrades.push(xmlDoc1[i].value)
-              if(!coefhistory){
-                document.querySelector(".history").innerHTML += `<td class="coef-content-history"></td>`;
-                coefhistory = true
+            case "Histoire":
+              historyGrades.push(xmlDoc1[i].value);
+              if (!coefhistory) {
+                document.querySelector(
+                  ".history"
+                ).innerHTML += `<td class="coef-content-history"></td>`;
+                coefhistory = true;
               }
-              document.querySelector(".coef-content-history").innerHTML += `${xmlDoc1[i].coef}`
+              document.querySelector(
+                ".coef-content-history"
+              ).innerHTML += `${xmlDoc1[i].coef}`;
               break;
-            case 'Anglais':
-              englishGrades.push(xmlDoc1[i].value)
+            case "Anglais":
+              englishGrades.push(xmlDoc1[i].value);
               break;
-            case 'Physique':
-              physiqueGrades.push(xmlDoc1[i].value)
+            case "Physique":
+              physiqueGrades.push(xmlDoc1[i].value);
               break;
-            case 'Français':
-              frenchGrades.push(xmlDoc1[i].value)
+            case "Français":
+              frenchGrades.push(xmlDoc1[i].value);
               break;
             default:
               console.log(`Sorry, we are out of ${expr}.`);
           }
         }
       }
-      let tdMath = null
+      let tdMath = null;
       for (let j = 0; j < mathGrades.length; j++) {
         if (!tdMath) {
-          document.querySelector(".maths").innerHTML += `<td class="grade-content"></td>`;
+          document.querySelector(
+            ".maths"
+          ).innerHTML += `<td class="grade-content"></td>`;
           tdMath = true;
         }
-        document.querySelector(".grade-content").innerHTML += `<button>${mathGrades[j]}</button>`
+        if (mathGrades[j]) {
+          document.querySelector(
+            ".grade-content"
+          ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${mathGrades[j]}</button>`;
+        }
       }
       for (let j = 0; j < frenchGrades.length; j++) {
-        document.querySelector(".french").innerHTML += `<button>${frenchGrades[j]}</button>`
+        document.querySelector(
+          ".french"
+        ).innerHTML += `<button>${frenchGrades[j]}</button>`;
       }
       for (let j = 0; j < englishGrades.length; j++) {
-        document.querySelector(".english").innerHTML += `<button>${englishGrades[j]}</button>`
+        document.querySelector(
+          ".english"
+        ).innerHTML += `<button>${englishGrades[j]}</button>`;
       }
       for (let j = 0; j < physiqueGrades.length; j++) {
-        document.querySelector(".physique").innerHTML += `<button>${physiqueGrades[j]}</button>`
+        document.querySelector(
+          ".physique"
+        ).innerHTML += `<button>${physiqueGrades[j]}</button>`;
       }
       for (let j = 0; j < historyGrades.length; j++) {
-        document.querySelector(".history").innerHTML += `<button>${historyGrades[j]}</button>`
+        document.querySelector(
+          ".history"
+        ).innerHTML += `<button>${historyGrades[j]}</button>`;
       }
     }
   };
@@ -186,25 +212,25 @@ if (typeUser == "student") {
       xhr4.open("GET", "../server/students.json", true);
       xhr4.onreadystatechange = function () {
         if (xhr4.readyState === 4 && xhr4.status === 200) {
-          console.log("Salut")
+          console.log("Salut");
           var xmlDoc4 = JSON.parse(xhr4.response);
           console.log(xmlDoc4);
 
           for (let i = 0; i < xmlDoc4.length; i++) {
             if (xmlDoc4[i].id == paramValue) {
-              console.log("Salut")
-              document.querySelector("h1").innerHTML = `Bulletin de ${xmlDoc4[i].firstname} ${xmlDoc4[i].lastname}`
+              console.log("Salut");
+              document.querySelector(
+                "h1"
+              ).innerHTML = `Bulletin de ${xmlDoc4[i].firstname} ${xmlDoc4[i].lastname}`;
             }
           }
-        };
-      }
+        }
+      };
       xhr4.send();
-    };
-  }
+    }
+  };
   xhr3.send();
 }
-
-
 
 // --------------Logout------------------
 let deconnectionBtn = document.querySelector("#logoutBtn");

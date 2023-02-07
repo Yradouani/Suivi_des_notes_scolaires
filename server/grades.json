@@ -27,7 +27,7 @@
         "type": "oral",
         "id_student": 1,
         "subject": "Anglais",
-        "comments": "Presque la moyenne, continu !"
+        "comments": "Presque la moyenne, continue!"
     },
     {
         "id": 4,
@@ -67,7 +67,7 @@
         "type": "écrit",
         "id_student": 2,
         "subject": "Histoire",
-        "comments": "Presque la moyenne, continu !"
+        "comments": "Presque la moyenne, continue!"
     },
     {
         "id": 8,
@@ -1047,7 +1047,7 @@
         "type": "écrit",
         "id_student": 1,
         "subject": "Mathématiques",
-        "comments": "Peux mieux faire..."
+        "comments": "Peut mieux faire..."
     },
     {
         "id": 106,
