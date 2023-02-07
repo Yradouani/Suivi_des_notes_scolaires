@@ -60,11 +60,8 @@ if (typeUser == "student") {
 
           switch (xmlDoc1[i].subject) {
             case "Mathématiques":
-              // let idGrade = xmlDoc1[i].id;
-              // let newGrade = xmlDoc1[i].value;
               mathGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
               console.log(mathGrades);
-              // mathGrades.push({ idGrade: newGrade });
               if (!coefmath) {
                 document.querySelector(
                   ".maths"
@@ -73,11 +70,11 @@ if (typeUser == "student") {
               }
               document.querySelector(
                 ".coef-content-math"
-              ).innerHTML += `${xmlDoc1[i].coef}`;
+              ).innerHTML += `<span>${xmlDoc1[i].coef}</span>`;
 
               break;
             case "Histoire":
-              historyGrades.push(xmlDoc1[i].value);
+              historyGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
               if (!coefhistory) {
                 document.querySelector(
                   ".history"
@@ -86,55 +83,128 @@ if (typeUser == "student") {
               }
               document.querySelector(
                 ".coef-content-history"
-              ).innerHTML += `${xmlDoc1[i].coef}`;
+              ).innerHTML += `<span>${xmlDoc1[i].coef}</span>`;
               break;
             case "Anglais":
-              englishGrades.push(xmlDoc1[i].value);
+              englishGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
+              if (!coefenglish) {
+                document.querySelector(
+                  ".english"
+                ).innerHTML += `<td class="coef-content-english"></td>`;
+                coefenglish = true;
+              }
+              document.querySelector(
+                ".coef-content-english"
+              ).innerHTML += `<span>${xmlDoc1[i].coef}</span>`;
               break;
             case "Physique":
-              physiqueGrades.push(xmlDoc1[i].value);
+              physiqueGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
+              if (!coefphysique) {
+                document.querySelector(
+                  ".physique"
+                ).innerHTML += `<td class="coef-content-physique"></td>`;
+                coefphysique = true;
+              }
+              document.querySelector(
+                ".coef-content-physique"
+              ).innerHTML += `<span>${xmlDoc1[i].coef}</span>`;
               break;
             case "Français":
-              frenchGrades.push(xmlDoc1[i].value);
+              frenchGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
+              if (!coeffrench) {
+                document.querySelector(
+                  ".french"
+                ).innerHTML += `<td class="coef-content-french"></td>`;
+                coeffrench = true;
+              }
+              document.querySelector(
+                ".coef-content-french"
+              ).innerHTML += `<span>${xmlDoc1[i].coef}</span>`;
               break;
             default:
-              console.log(`Sorry, we are out of ${expr}.`);
+              console.log(`Sorry, innexpected error happened`);
           }
         }
       }
       let tdMath = null;
+      let tdFrench = null;
+      let tdEnglish = null;
+      let tdPhysique = null;
+      let tdHistory = null;
+
+      // Maths
       for (let j = 0; j < mathGrades.length; j++) {
         if (!tdMath) {
           document.querySelector(
             ".maths"
-          ).innerHTML += `<td class="grade-content"></td>`;
+          ).innerHTML += `<td class="grade-content-maths"></td>`;
           tdMath = true;
         }
         if (mathGrades[j]) {
           document.querySelector(
-            ".grade-content"
+            ".grade-content-maths"
           ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${mathGrades[j]}</button>`;
         }
       }
+
+      // French
       for (let j = 0; j < frenchGrades.length; j++) {
-        document.querySelector(
-          ".french"
-        ).innerHTML += `<button>${frenchGrades[j]}</button>`;
+        if (!tdFrench) {
+          document.querySelector(
+            ".french"
+          ).innerHTML += `<td class="grade-content-french"></td>`;
+          tdFrench = true;
+        }
+        if (frenchGrades[j]) {
+          document.querySelector(
+            ".grade-content-french"
+          ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${frenchGrades[j]}</button>`;
+        }
       }
+
+      // English
       for (let j = 0; j < englishGrades.length; j++) {
-        document.querySelector(
-          ".english"
-        ).innerHTML += `<button>${englishGrades[j]}</button>`;
+        if (!tdEnglish) {
+          document.querySelector(
+            ".english"
+          ).innerHTML += `<td class="grade-content-english"></td>`;
+          tdEnglish = true;
+        }
+        if (englishGrades[j]) {
+          document.querySelector(
+            ".grade-content-english"
+          ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${englishGrades[j]}</button>`;
+        }
       }
+
+      // Physique
       for (let j = 0; j < physiqueGrades.length; j++) {
-        document.querySelector(
-          ".physique"
-        ).innerHTML += `<button>${physiqueGrades[j]}</button>`;
+        if (!tdPhysique) {
+          document.querySelector(
+            ".physique"
+          ).innerHTML += `<td class="grade-content-physique"></td>`;
+          tdPhysique = true;
+        }
+        if (physiqueGrades[j]) {
+          document.querySelector(
+            ".grade-content-physique"
+          ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${physiqueGrades[j]}</button>`;
+        }
       }
+
+      // History
       for (let j = 0; j < historyGrades.length; j++) {
-        document.querySelector(
-          ".history"
-        ).innerHTML += `<button>${historyGrades[j]}</button>`;
+        if (!tdHistory) {
+          document.querySelector(
+            ".history"
+          ).innerHTML += `<td class="grade-content-history"></td>`;
+          tdHistory = true;
+        }
+        if (historyGrades[j]) {
+          document.querySelector(
+            ".grade-content-history"
+          ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${historyGrades[j]}</button>`;
+        }
       }
     }
   };
