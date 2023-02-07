@@ -21,3 +21,18 @@
 #connect-teacher-btn:focus, #connect-student-btn:focus {
 	outline: none;
 }
+
+.choice .filter-switch label {
+	cursor: pointer;
+  }
+ .choice .filter-switch-item input:checked + label {
+	color: inherit;
+  }
+ .choice .filter-switch-item input:not(:checked) + label {
+	--bg-opacity: 0;
+	box-shadow: none;
+  }
+.choice a {
+	text-decoration: none;
+	color: white;
+}
