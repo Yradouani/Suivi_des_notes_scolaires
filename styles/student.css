@@ -42,7 +42,9 @@
     display: flex;
     justify-content: center;
 }
-
+.average-maths, .average-maths{
+    display: flex;
+}
 .coef-content-math,
 .coef-content-history,
 .coef-content-english,

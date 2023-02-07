@@ -48,6 +48,11 @@ if (typeUser == "student") {
       let englishGrades = [];
       let physiqueGrades = [];
       let frenchGrades = [];
+      let coefMathGrades = [];
+      let coefHistoryGrades = [];
+      let coefEnglishGrades = [];
+      let coefPhysiqueGrades = [];
+      let coefFrenchGrades = [];
       let coefmath = null;
       let coeffrench = null;
       let coefenglish = null;
@@ -61,7 +66,6 @@ if (typeUser == "student") {
           switch (xmlDoc1[i].subject) {
             case "Mathématiques":
               mathGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
-              console.log(mathGrades);
               if (!coefmath) {
                 document.querySelector(
                   ".maths"
@@ -71,7 +75,7 @@ if (typeUser == "student") {
               document.querySelector(
                 ".coef-content-math"
               ).innerHTML += `<span>${xmlDoc1[i].coef}</span>`;
-
+              coefMathGrades.push(xmlDoc1[i].coef);
               break;
             case "Histoire":
               historyGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
@@ -84,6 +88,7 @@ if (typeUser == "student") {
               document.querySelector(
                 ".coef-content-history"
               ).innerHTML += `<span>${xmlDoc1[i].coef}</span>`;
+              coefHistoryGrades.push(xmlDoc1[i].coef);
               break;
             case "Anglais":
               englishGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
@@ -96,6 +101,7 @@ if (typeUser == "student") {
               document.querySelector(
                 ".coef-content-english"
               ).innerHTML += `<span>${xmlDoc1[i].coef}</span>`;
+              coefEnglishGrades.push(xmlDoc1[i].coef);
               break;
             case "Physique":
               physiqueGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
@@ -108,6 +114,7 @@ if (typeUser == "student") {
               document.querySelector(
                 ".coef-content-physique"
               ).innerHTML += `<span>${xmlDoc1[i].coef}</span>`;
+              coefPhysiqueGrades.push(xmlDoc1[i].coef);
               break;
             case "Français":
               frenchGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
@@ -120,6 +127,7 @@ if (typeUser == "student") {
               document.querySelector(
                 ".coef-content-french"
               ).innerHTML += `<span>${xmlDoc1[i].coef}</span>`;
+              coefFrenchGrades.push(xmlDoc1[i].coef);
               break;
             default:
               console.log(`Sorry, innexpected error happened`);
@@ -131,6 +139,12 @@ if (typeUser == "student") {
       let tdEnglish = null;
       let tdPhysique = null;
       let tdHistory = null;
+      let mathSomme = 0;
+      let coefMathSomme = 0;
+      let frenchSomme = 0;
+      let coefFrenchSomme = 0;
+      let englishSomme = 0;
+      let coefEnglishSomme = 0;
 
       // Maths
       for (let j = 0; j < mathGrades.length; j++) {
@@ -140,13 +154,20 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-maths"></td>`;
           tdMath = true;
         }
-        if (mathGrades[j]) {
-          document.querySelector(
-            ".grade-content-maths"
-          ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${mathGrades[j]}</button>`;
-        }
+        mathGrades = mathGrades.filter(function (el) {
+          return el !== undefined;
+        });
+        document.querySelector(
+          ".grade-content-maths"
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${mathGrades[j]}</button>`;
+        mathSomme += parseInt(mathGrades[j]) * parseInt(coefMathGrades[j]);
+        coefMathSomme += parseInt(coefMathGrades[j]);
       }
-
+      let mathAverage = parseInt(mathSomme) / parseInt(coefMathSomme);
+      document.querySelector(".maths").innerHTML += `
+      <td class="average-maths"><span>${mathAverage}</span></td>
+      <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
+      `;
       // French
       for (let j = 0; j < frenchGrades.length; j++) {
         if (!tdFrench) {
@@ -155,12 +176,21 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-french"></td>`;
           tdFrench = true;
         }
-        if (frenchGrades[j]) {
-          document.querySelector(
-            ".grade-content-french"
-          ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${frenchGrades[j]}</button>`;
-        }
+        frenchGrades = frenchGrades.filter(function (el) {
+          return el !== undefined;
+        });
+        document.querySelector(
+          ".grade-content-french"
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${frenchGrades[j]}</button>`;
+
+        frenchSomme += parseInt(frenchGrades[j]) * parseInt(coefFrenchGrades[j]);
+        coefFrenchSomme += parseInt(coefFrenchGrades[j]);
       }
+      let frenchAverage = parseInt(frenchSomme) / parseInt(coefFrenchSomme);
+      document.querySelector(".french").innerHTML += `
+      <td class="average-maths"><span>${frenchAverage}</span></td>
+      <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
+      `;
 
       // English
       for (let j = 0; j < englishGrades.length; j++) {
@@ -170,12 +200,20 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-english"></td>`;
           tdEnglish = true;
         }
-        if (englishGrades[j]) {
-          document.querySelector(
-            ".grade-content-english"
-          ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${englishGrades[j]}</button>`;
-        }
+        englishGrades = englishGrades.filter(function (el) {
+          return el !== undefined;
+        });
+        document.querySelector(
+          ".grade-content-english"
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${englishGrades[j]}</button>`;
+        englishSomme += parseInt(englishGrades[j]) * parseInt(coefEnglishGrades[j]);
+        coefEnglishSomme += parseInt(coefEnglishGrades[j]);
       }
+      let englishAverage = parseInt(englishSomme) / parseInt(coefEnglishSomme);
+      document.querySelector(".english").innerHTML += `
+      <td class="average-maths"><span>${englishAverage}<span></td>
+      <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
+      `;
 
       // Physique
       for (let j = 0; j < physiqueGrades.length; j++) {
