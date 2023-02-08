@@ -65,7 +65,7 @@ if (typeUser == "student") {
 
           switch (xmlDoc1[i].subject) {
             case "Mathématiques":
-              mathGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
+              mathGrades.push([xmlDoc1[i].id, xmlDoc1[i].value]);
               if (!coefmath) {
                 document.querySelector(
                   ".maths"
@@ -78,7 +78,7 @@ if (typeUser == "student") {
               coefMathGrades.push(xmlDoc1[i].coef);
               break;
             case "Histoire":
-              historyGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
+              historyGrades.push([xmlDoc1[i].id, xmlDoc1[i].value]);
               if (!coefhistory) {
                 document.querySelector(
                   ".history"
@@ -91,7 +91,7 @@ if (typeUser == "student") {
               coefHistoryGrades.push(xmlDoc1[i].coef);
               break;
             case "Anglais":
-              englishGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
+              englishGrades.push([xmlDoc1[i].id, xmlDoc1[i].value]);
               if (!coefenglish) {
                 document.querySelector(
                   ".english"
@@ -104,7 +104,7 @@ if (typeUser == "student") {
               coefEnglishGrades.push(xmlDoc1[i].coef);
               break;
             case "Physique":
-              physiqueGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
+              physiqueGrades.push([xmlDoc1[i].id, xmlDoc1[i].value]);
               if (!coefphysique) {
                 document.querySelector(
                   ".physique"
@@ -117,7 +117,7 @@ if (typeUser == "student") {
               coefPhysiqueGrades.push(xmlDoc1[i].coef);
               break;
             case "Français":
-              frenchGrades[xmlDoc1[i].id] = xmlDoc1[i].value;
+              frenchGrades.push([xmlDoc1[i].id, xmlDoc1[i].value]);
               if (!coeffrench) {
                 document.querySelector(
                   ".french"
@@ -152,19 +152,21 @@ if (typeUser == "student") {
 
       // Maths
       for (let j = 0; j < mathGrades.length; j++) {
+        // console.log(mathGrades[j][0]);
         if (!tdMath) {
           document.querySelector(
             ".maths"
           ).innerHTML += `<td class="grade-content-maths"></td>`;
           tdMath = true;
         }
-        mathGrades = mathGrades.filter(function (el) {
-          return el !== undefined;
-        });
+        // mathGrades = mathGrades.filter(function (el) {
+        //   return el !== undefined;
+        // });
+        console.log(mathGrades);
         document.querySelector(
           ".grade-content-maths"
-        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${mathGrades[j]}</button>`;
-        mathSomme += parseInt(mathGrades[j]) * parseInt(coefMathGrades[j]);
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${mathGrades[j][0]}>${mathGrades[j][1]}</button>`;
+        mathSomme += parseInt(mathGrades[j][1]) * parseInt(coefMathGrades[j]);
         coefMathSomme += parseInt(coefMathGrades[j]);
       }
       let mathAverage = parseInt(mathSomme) / parseInt(coefMathSomme);
@@ -172,6 +174,7 @@ if (typeUser == "student") {
       <td class="average-maths"><span>${mathAverage}</span></td>
       <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
       `;
+
       // French
       for (let j = 0; j < frenchGrades.length; j++) {
         if (!tdFrench) {
@@ -180,14 +183,15 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-french"></td>`;
           tdFrench = true;
         }
-        frenchGrades = frenchGrades.filter(function (el) {
-          return el !== undefined;
-        });
+        // frenchGrades = frenchGrades.filter(function (el) {
+        //   return el !== undefined;
+        // });
         document.querySelector(
           ".grade-content-french"
-        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${frenchGrades[j]}</button>`;
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${frenchGrades[j][0]}>${frenchGrades[j][1]}</button>`;
 
-        frenchSomme += parseInt(frenchGrades[j]) * parseInt(coefFrenchGrades[j]);
+        frenchSomme +=
+          parseInt(frenchGrades[j][1]) * parseInt(coefFrenchGrades[j]);
         coefFrenchSomme += parseInt(coefFrenchGrades[j]);
       }
       let frenchAverage = parseInt(frenchSomme) / parseInt(coefFrenchSomme);
@@ -204,13 +208,14 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-english"></td>`;
           tdEnglish = true;
         }
-        englishGrades = englishGrades.filter(function (el) {
-          return el !== undefined;
-        });
+        // englishGrades = englishGrades.filter(function (el) {
+        //   return el !== undefined;
+        // });
         document.querySelector(
           ".grade-content-english"
-        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${englishGrades[j]}</button>`;
-        englishSomme += parseInt(englishGrades[j]) * parseInt(coefEnglishGrades[j]);
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${englishGrades[j][0]}>${englishGrades[j][1]}</button>`;
+        englishSomme +=
+          parseInt(englishGrades[j][1]) * parseInt(coefEnglishGrades[j]);
         coefEnglishSomme += parseInt(coefEnglishGrades[j]);
       }
       let englishAverage = parseInt(englishSomme) / parseInt(coefEnglishSomme);
@@ -227,16 +232,18 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-physique"></td>`;
           tdPhysique = true;
         }
-        physiqueGrades = physiqueGrades.filter(function (el) {
-          return el !== undefined;
-        });
+        // physiqueGrades = physiqueGrades.filter(function (el) {
+        //   return el !== undefined;
+        // });
         document.querySelector(
           ".grade-content-physique"
-        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${physiqueGrades[j]}</button>`;
-        physiqueSomme += parseInt(physiqueGrades[j]) * parseInt(coefPhysiqueGrades[j]);
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${physiqueGrades[j][0]}>${physiqueGrades[j][1]}</button>`;
+        physiqueSomme +=
+          parseInt(physiqueGrades[j][1]) * parseInt(coefPhysiqueGrades[j]);
         coefPhysiqueSomme += parseInt(coefPhysiqueGrades[j]);
       }
-      let physiqueAverage = parseInt(physiqueSomme) / parseInt(coefPhysiqueSomme);
+      let physiqueAverage =
+        parseInt(physiqueSomme) / parseInt(coefPhysiqueSomme);
       document.querySelector(".physique").innerHTML += `
       <td class="average-physique"><span>${physiqueAverage}<span></td>
       <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
@@ -250,13 +257,14 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-history"></td>`;
           tdHistory = true;
         }
-        historyGrades = historyGrades.filter(function (el) {
-          return el !== undefined;
-        });
+        // historyGrades = historyGrades.filter(function (el) {
+        //   return el !== undefined;
+        // });
         document.querySelector(
           ".grade-content-history"
-        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${historyGrades[j]}</button>`;
-        historySomme += parseInt(historyGrades[j]) * parseInt(coefHistoryGrades[j]);
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${historyGrades[j][0]}>${historyGrades[j][1]}</button>`;
+        historySomme +=
+          parseInt(historyGrades[j][1]) * parseInt(coefHistoryGrades[j]);
         coefHistorySomme += parseInt(coefHistoryGrades[j]);
       }
       let historyAverage = parseInt(historySomme) / parseInt(coefHistorySomme);
@@ -309,7 +317,7 @@ if (typeUser == "student") {
 
       for (let i = 0; i < xmlDoc3.length; i++) {
         // console.log(JSON.stringify(xmlDoc1[i].id_student));
-        if (JSON.stringify(xmlDoc3[i].id_student) == paramValue) {
+        if (xmlDoc3[i].id_student == paramValue) {
           if (i % 2 == 0) {
             studentReport.innerHTML += `
               <tr class="pinkLine">
