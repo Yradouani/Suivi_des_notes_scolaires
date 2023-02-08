@@ -159,10 +159,6 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-maths"></td>`;
           tdMath = true;
         }
-        // mathGrades = mathGrades.filter(function (el) {
-        //   return el !== undefined;
-        // });
-        console.log(mathGrades);
         document.querySelector(
           ".grade-content-maths"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${mathGrades[j][0]}>${mathGrades[j][1]}</button>`;
@@ -174,7 +170,7 @@ if (typeUser == "student") {
       <td class="average-maths"><span>${mathAverage}</span></td>
       <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
       `;
-
+      console.log("coucou")
       // French
       for (let j = 0; j < frenchGrades.length; j++) {
         if (!tdFrench) {
@@ -183,13 +179,9 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-french"></td>`;
           tdFrench = true;
         }
-        // frenchGrades = frenchGrades.filter(function (el) {
-        //   return el !== undefined;
-        // });
         document.querySelector(
           ".grade-content-french"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${frenchGrades[j][0]}>${frenchGrades[j][1]}</button>`;
-
         frenchSomme +=
           parseInt(frenchGrades[j][1]) * parseInt(coefFrenchGrades[j]);
         coefFrenchSomme += parseInt(coefFrenchGrades[j]);
@@ -208,9 +200,6 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-english"></td>`;
           tdEnglish = true;
         }
-        // englishGrades = englishGrades.filter(function (el) {
-        //   return el !== undefined;
-        // });
         document.querySelector(
           ".grade-content-english"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${englishGrades[j][0]}>${englishGrades[j][1]}</button>`;
@@ -232,9 +221,6 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-physique"></td>`;
           tdPhysique = true;
         }
-        // physiqueGrades = physiqueGrades.filter(function (el) {
-        //   return el !== undefined;
-        // });
         document.querySelector(
           ".grade-content-physique"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${physiqueGrades[j][0]}>${physiqueGrades[j][1]}</button>`;
@@ -257,9 +243,6 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-history"></td>`;
           tdHistory = true;
         }
-        // historyGrades = historyGrades.filter(function (el) {
-        //   return el !== undefined;
-        // });
         document.querySelector(
           ".grade-content-history"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${historyGrades[j][0]}>${historyGrades[j][1]}</button>`;
@@ -274,7 +257,16 @@ if (typeUser == "student") {
       `;
 
     }
+
+
+    function loadModals() {
+      var script = document.createElement("script");
+      script.src = "./js/modals.js";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    }
+    loadModals();
   };
+
   xhr1.send();
 
   // Displaying student datas if teacher is connected
@@ -376,3 +368,6 @@ deconnectionBtn.addEventListener("click", () => {
   localStorage.removeItem("userInfo");
   window.location.href = "../index.html";
 });
+
+
+
