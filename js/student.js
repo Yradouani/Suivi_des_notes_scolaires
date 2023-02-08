@@ -145,6 +145,10 @@ if (typeUser == "student") {
       let coefFrenchSomme = 0;
       let englishSomme = 0;
       let coefEnglishSomme = 0;
+      let physiqueSomme = 0;
+      let coefPhysiqueSomme = 0;
+      let historySomme = 0;
+      let coefHistorySomme = 0;
 
       // Maths
       for (let j = 0; j < mathGrades.length; j++) {
@@ -223,12 +227,20 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-physique"></td>`;
           tdPhysique = true;
         }
-        if (physiqueGrades[j]) {
-          document.querySelector(
-            ".grade-content-physique"
-          ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${physiqueGrades[j]}</button>`;
-        }
+        physiqueGrades = physiqueGrades.filter(function (el) {
+          return el !== undefined;
+        });
+        document.querySelector(
+          ".grade-content-physique"
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${physiqueGrades[j]}</button>`;
+        physiqueSomme += parseInt(physiqueGrades[j]) * parseInt(coefPhysiqueGrades[j]);
+        coefPhysiqueSomme += parseInt(coefPhysiqueGrades[j]);
       }
+      let physiqueAverage = parseInt(physiqueSomme) / parseInt(coefPhysiqueSomme);
+      document.querySelector(".physique").innerHTML += `
+      <td class="average-physique"><span>${physiqueAverage}<span></td>
+      <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
+      `;
 
       // History
       for (let j = 0; j < historyGrades.length; j++) {
@@ -238,12 +250,20 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-history"></td>`;
           tdHistory = true;
         }
-        if (historyGrades[j]) {
-          document.querySelector(
-            ".grade-content-history"
-          ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${historyGrades[j]}</button>`;
-        }
+        historyGrades = historyGrades.filter(function (el) {
+          return el !== undefined;
+        });
+        document.querySelector(
+          ".grade-content-history"
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${j}>${historyGrades[j]}</button>`;
+        historySomme += parseInt(historyGrades[j]) * parseInt(coefHistoryGrades[j]);
+        coefHistorySomme += parseInt(coefHistoryGrades[j]);
       }
+      let historyAverage = parseInt(historySomme) / parseInt(coefHistorySomme);
+      document.querySelector(".history").innerHTML += `
+      <td class="average-history"><span>${historyAverage}<span></td>
+      <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
+      `;
     }
   };
   xhr1.send();
