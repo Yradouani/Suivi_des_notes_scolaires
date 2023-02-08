@@ -264,6 +264,7 @@ if (typeUser == "student") {
       <td class="average-history"><span>${historyAverage}<span></td>
       <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
       `;
+
     }
   };
   xhr1.send();
