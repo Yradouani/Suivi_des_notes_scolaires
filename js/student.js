@@ -41,7 +41,7 @@ if (typeUser == "student") {
   xhr1.onreadystatechange = function () {
     if (xhr1.readyState === 4 && xhr1.status === 200) {
       var xmlDoc1 = JSON.parse(xhr1.response);
-      // console.log(xmlDoc1);
+      console.log(xmlDoc1);
 
       let mathGrades = [];
       let historyGrades = [];
@@ -59,7 +59,6 @@ if (typeUser == "student") {
       let coefphysique = null;
       let coefhistory = null;
       for (let i = 0; i < xmlDoc1.length; i++) {
-        // console.log(xmlDoc1[i].value);
         if (xmlDoc1[i].id_student == idStudent) {
           // if (i % 2 == 0) {
 
@@ -149,6 +148,8 @@ if (typeUser == "student") {
       let coefPhysiqueSomme = 0;
       let historySomme = 0;
       let coefHistorySomme = 0;
+      console.log(coefEnglishGrades + coefFrenchGrades)
+      console.log(englishGrades + frenchGrades)
 
       // Maths
       for (let j = 0; j < mathGrades.length; j++) {
@@ -255,14 +256,13 @@ if (typeUser == "student") {
       <td class="average-history"><span>${historyAverage}<span></td>
       <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link" width="70"></a></td>
       `;
-
     }
 
 
     function loadModals() {
       var script = document.createElement("script");
       script.src = "./js/modals.js";
-      document.getElementsByTagName("head")[0].appendChild(script);
+      document.getElementsByTagName("body")[0].appendChild(script);
     }
     loadModals();
   };

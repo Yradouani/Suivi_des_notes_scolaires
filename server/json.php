@@ -30,11 +30,11 @@ if (isset($_POST["create"]) && $_POST["create"] == "true") {
 if (isset($_POST["delete"]) && $_POST["delete"] == "true") {
     $id = $_POST["id"];
 
-    foreach($json as $key => $note){
+    foreach ($json as $key => $note) {
         if ($note->id == $id) {
-            unset($json[$key]);
+            array_splice($json, $key, 1);
             break;
-          }
+        }
     }
     file_put_contents('./grades.json', json_encode($json, JSON_UNESCAPED_UNICODE));
 }
