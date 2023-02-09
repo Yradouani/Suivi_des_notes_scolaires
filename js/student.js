@@ -172,6 +172,7 @@ if (typeUser == "student") {
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
       </td>
+
       `;
       console.log("coucou")
       // French
@@ -195,6 +196,7 @@ if (typeUser == "student") {
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
       </td>
+
       `;
 
       // English
@@ -218,6 +220,7 @@ if (typeUser == "student") {
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
       </td>
+
       `;
 
       // Physique
@@ -228,6 +231,7 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-physique"></td>`;
           tdPhysique = true;
         }
+
         document.querySelector(
           ".grade-content-physique"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${mathGrades[j][0]}>${physiqueGrades[j][1]}</button>`;
@@ -242,6 +246,7 @@ if (typeUser == "student") {
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
       </td>
+
       `;
 
       // History
@@ -265,6 +270,7 @@ if (typeUser == "student") {
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
       </td>
+
       `;
     }
 
