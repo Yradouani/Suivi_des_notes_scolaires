@@ -169,7 +169,9 @@ if (typeUser == "student") {
       let mathAverage = parseInt(mathSomme) / parseInt(coefMathSomme);
       document.querySelector(".maths").innerHTML += `
       <td class="average-maths"><span>${mathAverage}</span></td>
-      <td class="graph_link"><input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70"></td>
+      <td class="graph_link">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      </td>
       `;
       console.log("coucou")
       // French
@@ -190,7 +192,9 @@ if (typeUser == "student") {
       let frenchAverage = parseInt(frenchSomme) / parseInt(coefFrenchSomme);
       document.querySelector(".french").innerHTML += `
       <td class="average-maths"><span>${frenchAverage}</span></td>
-      <td class="graph_link"><input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70"></td>
+      <td class="graph_link">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      </td>
       `;
 
       // English
@@ -211,7 +215,9 @@ if (typeUser == "student") {
       let englishAverage = parseInt(englishSomme) / parseInt(coefEnglishSomme);
       document.querySelector(".english").innerHTML += `
       <td class="average-maths"><span>${englishAverage}<span></td>
-      <td class="graph_link"><input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70"></td>
+      <td class="graph_link">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      </td>
       `;
 
       // Physique
@@ -233,7 +239,9 @@ if (typeUser == "student") {
         parseInt(physiqueSomme) / parseInt(coefPhysiqueSomme);
       document.querySelector(".physique").innerHTML += `
       <td class="average-physique"><span>${physiqueAverage}<span></td>
-      <td class="graph_link"><input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70"></td>
+      <td class="graph_link">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      </td>
       `;
 
       // History
@@ -254,7 +262,9 @@ if (typeUser == "student") {
       let historyAverage = parseInt(historySomme) / parseInt(coefHistorySomme);
       document.querySelector(".history").innerHTML += `
       <td class="average-history"><span>${historyAverage}<span></td>
-      <td class="graph_link"><input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70"></td>
+      <td class="graph_link">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      </td>
       `;
     }
 
@@ -317,8 +327,9 @@ if (typeUser == "student") {
               <td class="type_eval_coef">${xmlDoc3[i].type}</td>
               <td class="average">(moyenne à calculer)</td>
               <td class="marks">${xmlDoc3[i].value}</td>
-              <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link"
-                          width="70"></a></td>
+              <td class="graph_link"> 
+              <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+              </td>
           </tr>
                   `;
           } else {
@@ -328,8 +339,9 @@ if (typeUser == "student") {
                   <td class="type_eval_coef">${xmlDoc3[i].type}</td>
                   <td class="average">(moyenne à calculer)</td>
                   <td class="marks">${xmlDoc3[i].value}</td>
-                  <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link"
-                              width="70"></a></td>
+                  <td class="graph_link"> 
+                  <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+                  </td>
               </tr>
                       `;
           }
