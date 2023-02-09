@@ -152,17 +152,12 @@ if (typeUser == "student") {
 
       // Maths
       for (let j = 0; j < mathGrades.length; j++) {
-        // console.log(mathGrades[j][0]);
         if (!tdMath) {
           document.querySelector(
             ".maths"
           ).innerHTML += `<td class="grade-content-maths"></td>`;
           tdMath = true;
         }
-        // mathGrades = mathGrades.filter(function (el) {
-        //   return el !== undefined;
-        // });
-        console.log(mathGrades);
         document.querySelector(
           ".grade-content-maths"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${mathGrades[j][0]}>${mathGrades[j][1]}</button>`;
