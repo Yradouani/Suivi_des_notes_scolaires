@@ -1,7 +1,10 @@
 /* MAIN */
 
     /* Notebook page effect */
-
+a {
+    text-decoration: none;
+    color: black;
+}
     .paper {
         background: rgba(230, 230, 230, 0.637);
         box-shadow: 4px 4px 0 #00486b;
@@ -35,6 +38,39 @@
     .pinkLine {
         background-color: #DDB2A7;
     }
+    .grades {
+        width: 30px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .average-maths, .average-maths{
+        display: flex;
+    }
+    .coef-content-math,
+    .coef-content-history,
+    .coef-content-english,
+    .coef-content-physique,
+    .coef-content-french
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .coef-content-math span,
+    .coef-content-history span,
+    .coef-content-english span,
+    .coef-content-physique span,
+    .coef-content-french span {
+        margin: 3px auto;
+    }
+    
+    th {
+        text-align: center;
+    
+    }
+
+
     /* Bouton Student */
 .btn-progress {
 	
@@ -59,3 +95,6 @@
     
 }
 
+.table {
+    border-bottom-color: transparent;
+}
