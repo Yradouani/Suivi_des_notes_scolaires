@@ -41,7 +41,7 @@ if (typeUser == "student") {
   xhr1.onreadystatechange = function () {
     if (xhr1.readyState === 4 && xhr1.status === 200) {
       var xmlDoc1 = JSON.parse(xhr1.response);
-      // console.log(xmlDoc1);
+      console.log(xmlDoc1);
 
       let mathGrades = [];
       let historyGrades = [];
@@ -59,7 +59,6 @@ if (typeUser == "student") {
       let coefphysique = null;
       let coefhistory = null;
       for (let i = 0; i < xmlDoc1.length; i++) {
-        // console.log(xmlDoc1[i].value);
         if (xmlDoc1[i].id_student == idStudent) {
           // if (i % 2 == 0) {
 
@@ -149,6 +148,8 @@ if (typeUser == "student") {
       let coefPhysiqueSomme = 0;
       let historySomme = 0;
       let coefHistorySomme = 0;
+      console.log(coefEnglishGrades + coefFrenchGrades)
+      console.log(englishGrades + frenchGrades)
 
       // Maths
       for (let j = 0; j < mathGrades.length; j++) {
@@ -159,10 +160,6 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-maths"></td>`;
           tdMath = true;
         }
-        // mathGrades = mathGrades.filter(function (el) {
-        //   return el !== undefined;
-        // });
-        console.log(mathGrades);
         document.querySelector(
           ".grade-content-maths"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${mathGrades[j][0]}>${mathGrades[j][1]}</button>`;
@@ -172,9 +169,12 @@ if (typeUser == "student") {
       let mathAverage = parseInt(mathSomme) / parseInt(coefMathSomme);
       document.querySelector(".maths").innerHTML += `
       <td class="average-maths"><span>${mathAverage}</span></td>
-      <td class="graph_link"><input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70"></td>
-      `;
+      <td class="graph_link">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      </td>
 
+      `;
+      console.log("coucou")
       // French
       for (let j = 0; j < frenchGrades.length; j++) {
         if (!tdFrench) {
@@ -183,13 +183,9 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-french"></td>`;
           tdFrench = true;
         }
-        // frenchGrades = frenchGrades.filter(function (el) {
-        //   return el !== undefined;
-        // });
         document.querySelector(
           ".grade-content-french"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${frenchGrades[j][0]}>${frenchGrades[j][1]}</button>`;
-
         frenchSomme +=
           parseInt(frenchGrades[j][1]) * parseInt(coefFrenchGrades[j]);
         coefFrenchSomme += parseInt(coefFrenchGrades[j]);
@@ -197,7 +193,10 @@ if (typeUser == "student") {
       let frenchAverage = parseInt(frenchSomme) / parseInt(coefFrenchSomme);
       document.querySelector(".french").innerHTML += `
       <td class="average-maths"><span>${frenchAverage}</span></td>
-      <td class="graph_link"><input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70"></td>
+      <td class="graph_link">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      </td>
+
       `;
 
       // English
@@ -208,9 +207,6 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-english"></td>`;
           tdEnglish = true;
         }
-        // englishGrades = englishGrades.filter(function (el) {
-        //   return el !== undefined;
-        // });
         document.querySelector(
           ".grade-content-english"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${englishGrades[j][0]}>${englishGrades[j][1]}</button>`;
@@ -221,7 +217,10 @@ if (typeUser == "student") {
       let englishAverage = parseInt(englishSomme) / parseInt(coefEnglishSomme);
       document.querySelector(".english").innerHTML += `
       <td class="average-maths"><span>${englishAverage}<span></td>
-      <td class="graph_link"><input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70"></td>
+      <td class="graph_link">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      </td>
+
       `;
 
       // Physique
@@ -232,9 +231,7 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-physique"></td>`;
           tdPhysique = true;
         }
-        physiqueGrades = physiqueGrades.filter(function (el) {
-          return el !== undefined;
-        });
+
         document.querySelector(
           ".grade-content-physique"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${mathGrades[j][0]}>${physiqueGrades[j][1]}</button>`;
@@ -246,7 +243,10 @@ if (typeUser == "student") {
         parseInt(physiqueSomme) / parseInt(coefPhysiqueSomme);
       document.querySelector(".physique").innerHTML += `
       <td class="average-physique"><span>${physiqueAverage}<span></td>
-      <td class="graph_link"><input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70"></td>
+      <td class="graph_link">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      </td>
+
       `;
 
       // History
@@ -257,9 +257,6 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-history"></td>`;
           tdHistory = true;
         }
-        historyGrades = historyGrades.filter(function (el) {
-          return el !== undefined;
-        });
         document.querySelector(
           ".grade-content-history"
         ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${historyGrades[j][0]}>${historyGrades[j][1]}</button>`;
@@ -270,11 +267,22 @@ if (typeUser == "student") {
       let historyAverage = parseInt(historySomme) / parseInt(coefHistorySomme);
       document.querySelector(".history").innerHTML += `
       <td class="average-history"><span>${historyAverage}<span></td>
-      <td class="graph_link"><input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70"></td>
-      `;
+      <td class="graph_link">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      </td>
 
+      `;
     }
+
+
+    function loadModals() {
+      var script = document.createElement("script");
+      script.src = "./js/modals.js";
+      document.getElementsByTagName("body")[0].appendChild(script);
+    }
+    loadModals();
   };
+
   xhr1.send();
 
   // Displaying student datas if teacher is connected
@@ -325,8 +333,9 @@ if (typeUser == "student") {
               <td class="type_eval_coef">${xmlDoc3[i].type}</td>
               <td class="average">(moyenne à calculer)</td>
               <td class="marks">${xmlDoc3[i].value}</td>
-              <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link"
-                          width="70"></a></td>
+              <td class="graph_link"> 
+              <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+              </td>
           </tr>
                   `;
           } else {
@@ -336,8 +345,9 @@ if (typeUser == "student") {
                   <td class="type_eval_coef">${xmlDoc3[i].type}</td>
                   <td class="average">(moyenne à calculer)</td>
                   <td class="marks">${xmlDoc3[i].value}</td>
-                  <td class="graph_link"> <a href=""><img src="./assets/stats.jpg" alt="graph_link"
-                              width="70"></a></td>
+                  <td class="graph_link"> 
+                  <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+                  </td>
               </tr>
                       `;
           }
@@ -376,3 +386,6 @@ deconnectionBtn.addEventListener("click", () => {
   localStorage.removeItem("userInfo");
   window.location.href = "../index.html";
 });
+
+
+

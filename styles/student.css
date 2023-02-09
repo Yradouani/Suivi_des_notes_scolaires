@@ -42,15 +42,17 @@
     display: flex;
     justify-content: center;
 }
-.average-maths, .average-maths{
+
+.average-maths,
+.average-maths {
     display: flex;
 }
+
 .coef-content-math,
 .coef-content-history,
 .coef-content-english,
 .coef-content-physique,
-.coef-content-french
-{
+.coef-content-french {
     display: flex;
     flex-direction: column;
 }
@@ -66,4 +68,8 @@
 th {
     text-align: center;
 
+}
+
+.table {
+    border-bottom-color: transparent;
 }
