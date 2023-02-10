@@ -53,8 +53,6 @@ window.onload = function () {
 // MODAL GRAPH INDIVIDUEL
 const ctx = document.getElementById('myChart');
 const chart = document.querySelectorAll(".chartButton");
-console.log(chart);
-let graphik = new Chart();
 
 const subjectToColor = {
   "Mathématiques": "red",
@@ -63,27 +61,25 @@ const subjectToColor = {
   "Physique": "purple",
   "Français": "yellow"
 };
+
 fetch('./server/grades.json')
   .then(response => response.json())
   .then(data => {
-    //---------pour une valeur défini 
-
+    let graphik = null;
     for (let i = 0; i < chart.length; i++) {
-      console.log(chart);
       chart[i].addEventListener("click", graph);
       function graph() {
         const labels = [];
         const values = [];
-        console.log(chart);
         data.filter(grade => grade.subject == chart[i].dataset.subject && grade.id_student == chart[i].dataset.student).forEach(grade => {
-          console.log(chart[i].dataset.subject);
           labels.push(grade.subject);
           values.push(grade.value);
-          console.log(chart);
         });
-        
-        graphik = Chart(ctx, {
-          
+
+        if (graphik) {
+          graphik.destroy();
+        }
+        graphik = new Chart(ctx, {
           type: 'bar',
           data: {
             labels: labels,
@@ -95,7 +91,6 @@ fetch('./server/grades.json')
 
           },
           options: {
-
             scales: {
               xAxes: [{
                 ticks: {
@@ -113,12 +108,7 @@ fetch('./server/grades.json')
           },
         });
       }
-
     }
-   
-    let closebtn = document.querySelector(".btn-close");
-    closebtn.addEventListener("click", () => {
-      graphik.destroy();
-    })
 
-  });  
+
+  });
