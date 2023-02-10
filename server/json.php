@@ -40,3 +40,5 @@ if (isset($_POST["delete"]) && $_POST["delete"] == "true") {
 }
 
 fclose($file);
+
+fclose($file);
