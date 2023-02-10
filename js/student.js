@@ -514,12 +514,12 @@ if (typeUser == "student") {
 
       console.log(frenchGrades)
 
-
-
-
-
-
-
+      function loadModals() {
+        var script = document.createElement("script");
+        script.src = "./js/modals.js";
+        document.getElementsByTagName("body")[0].appendChild(script);
+      }
+      loadModals();
 
       // Display student name on h1
       var xhr4 = new XMLHttpRequest();
