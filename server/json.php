@@ -21,11 +21,15 @@ while (($buffer = fgets($file, 4096)) !== false) {
 
 $json = json_decode($jsonDoc);
 
+// add a new grade
+
 if (isset($_POST["create"]) && $_POST["create"] == "true") {
     $content = json_decode($_POST["content"]);
     array_push($json, $content);
     file_put_contents('./grades.json', json_encode($json, JSON_UNESCAPED_UNICODE));
 }
+
+// delete a grade
 
 if (isset($_POST["delete"]) && $_POST["delete"] == "true") {
     $id = $_POST["id"];
@@ -38,5 +42,27 @@ if (isset($_POST["delete"]) && $_POST["delete"] == "true") {
     }
     file_put_contents('./grades.json', json_encode($json, JSON_UNESCAPED_UNICODE));
 }
+
+// modify a grade 
+
+if (isset($_POST["modify"]) && $_POST["modify"] == "true") {
+    $id = $_POST["id"];
+    $value = $_POST["grade"];
+    $date = $_POST["date"];
+    $type = $_POST["type"];
+    $commments = $_POST["comments"];
+
+    foreach ($json as $key => $note) {
+        if ($note->id == $id) {
+            $note->value = $value;
+            $note->date = $date;
+            $note->type = $type;
+            $note->comments = $comments;
+            break;
+        }
+    }
+    file_put_contents('./grades.json', json_encode($json, JSON_UNESCAPED_UNICODE));
+}
+
 
 fclose($file);

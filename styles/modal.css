@@ -119,3 +119,14 @@ textarea {
     resize: none;
   }
 /* END MODAL DETAIL GRADES */
+
+/* MODIF FORM */
+
+#modifForm {
+    display:none;
+}
+
+.form {
+    margin-left: 5px;
+    width : 300px;
+}
