@@ -43,10 +43,10 @@
     justify-content: center;
 }
 
-.average-maths,
-.average-maths {
+/* .average-maths,
+.average-physique {
     display: flex;
-}
+} */
 
 .coef-content-math,
 .coef-content-history,
@@ -65,7 +65,7 @@
     margin: 3px auto;
 }
 
-th {
+th, td {
     text-align: center;
 
 }

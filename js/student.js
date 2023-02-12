@@ -148,6 +148,23 @@ if (typeUser == "student") {
           }
         }
       }
+      let tdMath = null;
+      let tdFrench = null;
+      let tdEnglish = null;
+      let tdPhysique = null;
+      let tdHistory = null;
+      let mathSomme = 0;
+      let coefMathSomme = 0;
+      let frenchSomme = 0;
+      let coefFrenchSomme = 0;
+      let englishSomme = 0;
+      let coefEnglishSomme = 0;
+      let physiqueSomme = 0;
+      let coefPhysiqueSomme = 0;
+      let historySomme = 0;
+      let coefHistorySomme = 0;
+      console.log(coefEnglishGrades + coefFrenchGrades);
+      console.log(englishGrades + frenchGrades);
 
       // Maths
       for (let j = 0; j < mathGrades.length; j++) {
@@ -167,11 +184,11 @@ if (typeUser == "student") {
       document.querySelector(".maths").innerHTML += `
       <td class="average-maths"><span>${mathAverage}</span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
 
       `;
-
+      console.log("coucou");
       // French
       for (let j = 0; j < frenchGrades.length; j++) {
         if (!tdFrench) {
@@ -191,7 +208,7 @@ if (typeUser == "student") {
       document.querySelector(".french").innerHTML += `
       <td class="average-maths"><span>${frenchAverage}</span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
 
       `;
@@ -215,7 +232,7 @@ if (typeUser == "student") {
       document.querySelector(".english").innerHTML += `
       <td class="average-maths"><span>${englishAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
 
       `;
@@ -241,7 +258,7 @@ if (typeUser == "student") {
       document.querySelector(".physique").innerHTML += `
       <td class="average-physique"><span>${physiqueAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
 
       `;
@@ -265,12 +282,11 @@ if (typeUser == "student") {
       document.querySelector(".history").innerHTML += `
       <td class="average-history"><span>${historyAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
 
       `;
     }
-
 
     function loadModals() {
       var script = document.createElement("script");
@@ -321,7 +337,6 @@ if (typeUser == "student") {
 
       for (let i = 0; i < xmlDoc3.length; i++) {
         if (xmlDoc3[i].id_student == paramValue) {
-
           switch (xmlDoc3[i].subject) {
             case "Mathématiques":
               mathGrades.push([xmlDoc3[i].id, xmlDoc3[i].value]);
@@ -391,11 +406,10 @@ if (typeUser == "student") {
             default:
               console.log(`Sorry, innexpected error happened`);
           }
-
         }
       }
       // Maths
-      console.log(mathGrades.length)
+      console.log(mathGrades.length);
       for (let j = 0; j < mathGrades.length; j++) {
         if (!tdMath) {
           document.querySelector(
@@ -512,7 +526,7 @@ if (typeUser == "student") {
   <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
   </td>`;
 
-      console.log(frenchGrades)
+      console.log(frenchGrades);
 
       function loadModals() {
         var script = document.createElement("script");
@@ -553,6 +567,3 @@ deconnectionBtn.addEventListener("click", () => {
   localStorage.removeItem("userInfo");
   window.location.href = "../index.html";
 });
-
-
-
