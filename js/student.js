@@ -409,10 +409,10 @@ if (typeUser == "student") {
       }
       let mathAverage = parseInt(mathSomme) / parseInt(coefMathSomme);
       document.querySelector(".maths").innerHTML += `
-  <td class="average-maths"><span>${mathAverage}</span></td>
-  <td class="graph_link">
-  <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
-  </td>`;
+        <td class="average-maths"><span>${mathAverage}</span></td>
+        <td class="graph_link">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+        </td>`;
 
       // French
       for (let j = 0; j < frenchGrades.length; j++) {
@@ -431,12 +431,10 @@ if (typeUser == "student") {
       }
       let frenchAverage = parseInt(frenchSomme) / parseInt(coefFrenchSomme);
       document.querySelector(".french").innerHTML += `
-  <td class="average-maths"><span>${frenchAverage}</span></td>
-  <td class="graph_link">
-  <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
-  </td>
-
-  `;
+        <td class="average-maths"><span>${frenchAverage}</span></td>
+        <td class="graph_link">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+        </td>`;
 
       // English
       for (let j = 0; j < englishGrades.length; j++) {
@@ -455,12 +453,10 @@ if (typeUser == "student") {
       }
       let englishAverage = parseInt(englishSomme) / parseInt(coefEnglishSomme);
       document.querySelector(".english").innerHTML += `
-  <td class="average-maths"><span>${englishAverage}<span></td>
-  <td class="graph_link">
-  <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
-  </td>
-
-  `;
+        <td class="average-maths"><span>${englishAverage}<span></td>
+        <td class="graph_link">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+        </td>`;
 
       // Physique
       for (let j = 0; j < physiqueGrades.length; j++) {
@@ -481,12 +477,10 @@ if (typeUser == "student") {
       let physiqueAverage =
         parseInt(physiqueSomme) / parseInt(coefPhysiqueSomme);
       document.querySelector(".physique").innerHTML += `
-  <td class="average-physique"><span>${physiqueAverage}<span></td>
-  <td class="graph_link">
-  <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
-  </td>
-
-  `;
+        <td class="average-physique"><span>${physiqueAverage}<span></td>
+        <td class="graph_link">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+        </td>`;
 
       // History
       for (let j = 0; j < historyGrades.length; j++) {
@@ -505,10 +499,10 @@ if (typeUser == "student") {
       }
       let historyAverage = parseInt(historySomme) / parseInt(coefHistorySomme);
       document.querySelector(".history").innerHTML += `
-  <td class="average-history"><span>${historyAverage}<span></td>
-  <td class="graph_link">
-  <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
-  </td>`;
+        <td class="average-history"><span>${historyAverage}<span></td>
+        <td class="graph_link">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+        </td>`;
 
       console.log(frenchGrades)
 
