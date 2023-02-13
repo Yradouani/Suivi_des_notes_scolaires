@@ -55,6 +55,7 @@ xhr.onreadystatechange = function () {
                 value: gradeInput.value,
                 date: dateInput.value,
                 type: type.value,
+                coef: type.value == "oral" ? "1" : "2",
                 id_student: j + 1,
                 subject: subject.value,
                 comments: commentInput.value,
@@ -75,33 +76,6 @@ xhr.onreadystatechange = function () {
                 .catch((err) => {
                   console.log(err);
                 });
-            }
-          };
-          xhr2.send();
-
-          var xhr2 = new XMLHttpRequest();
-          xhr2.open("GET", "../server/grades.json", true);
-          xhr2.onreadystatechange = function () {
-            if (xhr2.readyState === 4 && xhr2.status === 200) {
-              var xmlGrade = JSON.parse(xhr2.response);
-              var gradesNumber = xmlGrade.length;
-
-              let gradeInfo = {
-                id: gradesNumber + 1,
-                value: gradeInput.value,
-                date: dateInput.value,
-                type: type.value,
-                id_student: j + 1,
-                subject: "Histoire",
-                comments: commentInput.value,
-              };
-              console.log(gradeInfo);
-              console.log(
-                type.value,
-                dateInput.value,
-                gradeInput.value,
-                commentInput.value
-              );
             }
           };
           xhr2.send();
@@ -138,31 +112,6 @@ deconnectionBtn.addEventListener("click", () => {
   localStorage.removeItem("userInfo");
   window.location.href = "../index.html";
 });
-//
-// Ajouter une note
-let addGradeButtons = document.querySelectorAll(".add-btn");
-console.log(addGradeButtons);
-for (let j = 0; j < addGradeButtons.length; j++) {
-  console.log(addGradeButtons[j]);
-  addGradeButtons[j].addEventListener("click", () => {
-    console.log("coucou");
-    let validateGradeBtn = document.querySelector(".add-grade-btn");
-    validateGradeBtn.addEventListener("click", () => {
-      console.log("coucou");
-      let type = document.querySelector("#eval-choice");
-      let dateInput = document.querySelector("#date");
-      let gradeInput = document.querySelector("#grade");
-      let commentInput = document.querySelector("#comment");
-
-      console.log(
-        type.value,
-        dateInput.value,
-        gradeInput.value,
-        commentInput.value
-      );
-    });
-  });
-}
 
 // Voir le bulletin de l'élève
 let watchGradeButtons = document.querySelectorAll(".grade-btn");
