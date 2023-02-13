@@ -167,11 +167,10 @@ if (typeUser == "student") {
       document.querySelector(".maths").innerHTML += `
       <td class="average-maths"><span>${mathAverage}</span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
 
       `;
-
       // French
       for (let j = 0; j < frenchGrades.length; j++) {
         if (!tdFrench) {
@@ -191,7 +190,7 @@ if (typeUser == "student") {
       document.querySelector(".french").innerHTML += `
       <td class="average-maths"><span>${frenchAverage}</span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
 
       `;
@@ -215,7 +214,7 @@ if (typeUser == "student") {
       document.querySelector(".english").innerHTML += `
       <td class="average-maths"><span>${englishAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
 
       `;
@@ -241,7 +240,7 @@ if (typeUser == "student") {
       document.querySelector(".physique").innerHTML += `
       <td class="average-physique"><span>${physiqueAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
 
       `;
@@ -265,12 +264,11 @@ if (typeUser == "student") {
       document.querySelector(".history").innerHTML += `
       <td class="average-history"><span>${historyAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.jpg" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
 
       `;
     }
-
 
     function loadModals() {
       var script = document.createElement("script");
@@ -547,6 +545,3 @@ deconnectionBtn.addEventListener("click", () => {
   localStorage.removeItem("userInfo");
   window.location.href = "../index.html";
 });
-
-
-

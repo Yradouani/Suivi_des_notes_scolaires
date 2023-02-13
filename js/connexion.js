@@ -6,84 +6,84 @@ var teacherPasswordValue = "";
 
 // ---------------Connexion du professeur----------------------
 connectTeacherBtn.addEventListener("click", () => {
-    let teacherEmail = document.querySelector("#teacher-email");
-    let teacherPassword = document.querySelector("#teacher-password");
+  let teacherEmail = document.querySelector("#teacher-email");
+  let teacherPassword = document.querySelector("#teacher-password");
 
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "../teachers.json", true);
-    xhr.onreadystatechange = function () {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "../teachers.json", true);
+      xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            var xmlDoc = JSON.parse(xhr.responseText);
-            console.log(xmlDoc);
+          var xmlDoc = JSON.parse(xhr.responseText);
+          console.log(xmlDoc);
 
-            for (let i = 0; i < xmlDoc.length; i++) {
-                if (xmlDoc[i].email == teacherEmail.value) {
-                    console.log("adresse mail connue");
-                    if (xmlDoc[i].password == teacherPassword.value) {
-                        console.log("connexion validée");
-                        let infos = {
-                            id: xmlDoc[i].id,
-                            type: "teacher"
-                        };
-                        localStorage.setItem("userInfo", JSON.stringify(infos))
-                        window.location.href = "../teacher.html";
-                        teacherEmailValue = teacherEmail.value;
-                        teacherPasswordValue = teacherPassword.value;
-                        break;
-                    } else {
-                        console.log("mot de passe erroné");
-                        errorMessage.innerHTML = "Mot de passe incorrect";
-                    }
-                } else {
-                    console.log("adresse mail inconnue");
-                    errorMessage.innerHTML = "Adresse mail incorrecte";
-                }
+
+          for (let i = 0; i < xmlDoc.length; i++) {
+            if (xmlDoc[i].email == teacherEmail.value) {
+              console.log("adresse mail connue");
+              if (xmlDoc[i].password == teacherPassword.value) {
+                console.log("connexion validée");
+                let infos = {
+                  id: xmlDoc[i].id,
+                  type: "teacher",
+                };
+                localStorage.setItem("userInfo", JSON.stringify(infos));
+                window.location.href = "../teacher.html";
+                break;
+              } else {
+                console.log("mot de passe erroné");
+                errorMessage.innerHTML = "Mot de passe incorrect";
+              }
+            } else {
+              console.log("adresse mail inconnue");
+              errorMessage.innerHTML = "Adresse mail incorrecte";
             }
+          }
         }
-    };
-    xhr.send();
-})
+      };
+      xhr.send();
+    });
 
 // ---------------Connexion de l'élève----------------------
 connectStudentBtn.addEventListener("click", () => {
-    let studentEmail = document.querySelector("#student-email");
-    let studentPassword = document.querySelector("#student-password");
+  let studentEmail = document.querySelector("#student-email");
+  let studentPassword = document.querySelector("#student-password");
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "../server/students.json", true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var xmlDoc = JSON.parse(xhr.response);
-            console.log(xmlDoc);
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "../server/students.json", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var xmlDoc = JSON.parse(xhr.response);
+      console.log(xmlDoc);
 
-            for (let i = 0; i < xmlDoc.length; i++) {
-                if (xmlDoc[i].email == studentEmail.value) {
-                    console.log("adresse mail connue");
-                    if (xmlDoc[i].password == studentPassword.value) {
-                        console.log("connexion validée");
-                        window.location.href = "../student.html";
-                        let infos = {
-                            id: xmlDoc[i].id,
-                            type: "student"
-                        };
-                        localStorage.setItem("userInfo", JSON.stringify(infos))
-                        break;
-                    } else {
-                        console.log("mot de passe erroné");
-                        errorMessage.innerText = "Mot de passe incorrect";
-                    }
-                } else {
-                    console.log("adresse mail inconnue");
-                    errorMessage.innerHTML = "Adresse mail incorrecte";
-                }
-            }
+      for (let i = 0; i < xmlDoc.length; i++) {
+        if (xmlDoc[i].email == studentEmail.value) {
+          console.log("adresse mail connue");
+          if (xmlDoc[i].password == studentPassword.value) {
+            console.log("connexion validée");
+            window.location.href = "../student.html";
+            let infos = {
+              id: xmlDoc[i].id,
+              type: "student",
+            };
+            localStorage.setItem("userInfo", JSON.stringify(infos));
+            break;
+          } else {
+            console.log("mot de passe erroné");
+            errorMessage.innerText = "Mot de passe incorrect";
+          }
+        } else {
+          console.log("adresse mail inconnue");
+          errorMessage.innerHTML = "Adresse mail incorrecte";
         }
-    };
-    xhr.send();
+      }
+    }
+  };
+  xhr.send();
 })
 
 module.exports = {
-    teacherEmailValue: teacherEmailValue || "sophie.lemaire@yahoo.fr",
-    teacherPasswordValue: teacherPasswordValue || "sophieLemaire"
+  teacherEmailValue: teacherEmailValue || "sophie.lemaire@yahoo.fr",
+  teacherPasswordValue: teacherPasswordValue || "sophieLemaire"
 };
+
+
