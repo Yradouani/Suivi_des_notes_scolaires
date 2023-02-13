@@ -51,13 +51,13 @@
     },
     {
         "id": 6,
-        "value": 11,
-        "date": "21\/02\/2022",
+        "value": "18",
+        "date": "21\/02\/22",
         "coef": 2,
         "type": "oral",
         "id_student": 2,
         "subject": "Mathématiques",
-        "comments": "Tu as compris le principe !"
+        "comments": "Félicitations !!!"
     },
     {
         "id": 7,
@@ -1118,5 +1118,55 @@
         "id_student": 1,
         "subject": "Histoire",
         "comments": "Encouragements"
+    },
+    {
+        "id": 113,
+        "value": "20",
+        "date": "2023-02-01",
+        "type": "oral",
+        "coef": "1",
+        "id_student": 3,
+        "subject": "Physique",
+        "comments": "Excellent, bravo Tom"
+    },
+    {
+        "id": 114,
+        "value": "20",
+        "date": "2023-02-01",
+        "type": "oral",
+        "coef": "1",
+        "id_student": 3,
+        "subject": "Français",
+        "comments": "Excellent, bravo Tom"
+    },
+    {
+        "id": 115,
+        "value": "10",
+        "date": "2023-02-01",
+        "type": "oral",
+        "coef": "1",
+        "id_student": 3,
+        "subject": "Mathématiques",
+        "comments": "Tu peux mieux faire avec plus de travail"
+    },
+    {
+        "id": 116,
+        "value": "11",
+        "date": "2023-02-01",
+        "type": "écrit",
+        "coef": "2",
+        "id_student": 3,
+        "subject": "Histoire",
+        "comments": "Tu peux mieux faire avec plus de travail"
+    },
+    {
+        "id": 117,
+        "value": "19",
+        "date": "2022-12-06",
+        "type": "oral",
+        "coef": "1",
+        "id_student": 3,
+        "subject": "Anglais",
+        "comments": "Bravo"
     }
 ]

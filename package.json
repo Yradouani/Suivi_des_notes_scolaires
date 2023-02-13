@@ -1,0 +1,24 @@
+{
+  "name": "suivi_des_notes_scolaires",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yradouani/Suivi_des_notes_scolaires.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yradouani/Suivi_des_notes_scolaires/issues"
+  },
+  "homepage": "https://github.com/Yradouani/Suivi_des_notes_scolaires#readme",
+  "devDependencies": {
+    "jest": "^29.4.2",
+    "jest-environment-jsdom": "^29.4.2",
+    "jsdom": "^21.1.0"
+  }
+}

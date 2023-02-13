@@ -85,3 +85,5 @@ module.exports = {
   teacherEmailValue: teacherEmailValue || "sophie.lemaire@yahoo.fr",
   teacherPasswordValue: teacherPasswordValue || "sophieLemaire"
 };
+
+
