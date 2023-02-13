@@ -44,31 +44,52 @@ for (let i = 0; i < grades.length; i++) {
 
             // Modif grade
 
-            let confirmModifBtn = document.querySelector(
-              ".modif-grade-confirm"
-            );
+            // Display form onclick
+            let modifForm = document.getElementById("modifForm");
+            let modifBtn = document.querySelector(".modif-grade-btn");
+            let closeBtn = document.getElementById("closeBtn");
+
             let newValue = document.getElementById("newValue");
-            let newDate = document.querySelector("newDate");
+            let newDate = document.getElementById("newDate");
             let newType = document.getElementById("newType");
             let newComment = document.getElementById("newComment");
 
-            let valueGrade = newValue.value;
-            let dateGrade = newDate.value;
-            let typeGrade = newType.value;
-            let commentsGrade = newComment.value;
-            let idGrade = grades[i].dataset.id;
+            let gradeModif = {};
 
-            // let gradeModif = {
-            //   id: grades[i].dataset.id,
-            //   value: newValue.value,
-            //   date: newDate.value,
-            //   type: newType.value,
-            //   id_student: item.id_student,
-            //   subject: item.subject,
-            //   comments: newComment.value,
-            // };
+            modifBtn.addEventListener("click", () => {
+              modifForm.style.display = "block";
+              newValue.value = item.value;
+              newDate.value = item.date;
+              newType.value = item.type;
+              newComment.innerHTML = item.comments;
+              modifBtn.style.display = "none";
+            });
+
+            closeBtn.addEventListener("click", () => {
+              modifForm.style.display = "none";
+              modifBtn.style.display = "block";
+            });
+
+            let confirmModifBtn = document.querySelector(
+              ".modif-grade-confirm"
+            );
 
             confirmModifBtn.addEventListener("click", () => {
+              if (
+                newValue != "" &&
+                newDate != "" &&
+                newType != "" &&
+                newComment != ""
+              ) {
+                gradeModif = {
+                  id: grades[i].dataset.id,
+                  value: newValue.value,
+                  date: newDate.value,
+                  type: newType.value,
+                  comment: newComment.value,
+                };
+                console.log(gradeModif);
+              }
               // Envoi de la requête au serveur
               fetch("http://127.0.0.1:8000/json.php", {
                 method: "POST",
@@ -76,12 +97,7 @@ for (let i = 0; i < grades.length; i++) {
                   "Content-type":
                     "application/x-www-form-urlencoded; charset=UTF-8",
                 },
-                body: "id=" + idGrade + "&modify=true",
-                body: "grade=" + JSON.stringify(valueGrade) + "&modify=true",
-                body: "date=" + JSON.stringify(dateGrade) + "&modify=true",
-                body: "type=" + JSON.stringify(typeGrade) + "&modify=true",
-                body:
-                  "comments=" + JSON.stringify(commentsGrade) + "&modify=true",
+                body: "grade=" + JSON.stringify(gradeModif) + "&modify=true",
               })
                 .then((res) => {
                   console.log(res);
@@ -97,18 +113,3 @@ for (let i = 0; i < grades.length; i++) {
     xhr1.send();
   }
 }
-
-// Display form onclick
-let modifForm = document.getElementById("modifForm");
-let modifBtn = document.querySelector(".modif-grade-btn");
-let closeBtn = document.getElementById("closeBtn");
-
-modifBtn.addEventListener("click", () => {
-  modifForm.style.display = "block";
-  modifBtn.style.display = "none";
-});
-
-closeBtn.addEventListener("click", () => {
-  modifForm.style.display = "none";
-  modifBtn.style.display = "block";
-});

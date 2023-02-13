@@ -148,23 +148,6 @@ if (typeUser == "student") {
           }
         }
       }
-      let tdMath = null;
-      let tdFrench = null;
-      let tdEnglish = null;
-      let tdPhysique = null;
-      let tdHistory = null;
-      let mathSomme = 0;
-      let coefMathSomme = 0;
-      let frenchSomme = 0;
-      let coefFrenchSomme = 0;
-      let englishSomme = 0;
-      let coefEnglishSomme = 0;
-      let physiqueSomme = 0;
-      let coefPhysiqueSomme = 0;
-      let historySomme = 0;
-      let coefHistorySomme = 0;
-      console.log(coefEnglishGrades + coefFrenchGrades);
-      console.log(englishGrades + frenchGrades);
 
       // Maths
       for (let j = 0; j < mathGrades.length; j++) {
@@ -188,7 +171,6 @@ if (typeUser == "student") {
       </td>
 
       `;
-      console.log("coucou");
       // French
       for (let j = 0; j < frenchGrades.length; j++) {
         if (!tdFrench) {
