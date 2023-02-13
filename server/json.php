@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: POST, GET, DELETE');
     header('Access-Control-Allow-Headers: token, Content-Type');
-    header('Access-Control-Max-Age: 1728000');
+    header('Access-Control-Max-Age: 1278000');
     header('Content-Length: 0');
     header('Content-Type: text/plain');
 }
@@ -44,20 +44,22 @@ if (isset($_POST["delete"]) && $_POST["delete"] == "true") {
 }
 
 // modify a grade 
-
 if (isset($_POST["modify"]) && $_POST["modify"] == "true") {
-    $id = $_POST["id"];
-    $value = $_POST["grade"];
-    $date = $_POST["date"];
-    $type = $_POST["type"];
-    $commments = $_POST["comments"];
+    $grade = JSON_decode($_POST["grade"]);
+    var_dump($grade);
+
+    $idGrade = $grade->id;
+    $value = $grade->value;
+    $date = $grade->date;
+    $type = $grade->type;
+    $comment = $grade->comment;
 
     foreach ($json as $key => $note) {
-        if ($note->id == $id) {
+        if ($note->id == $idGrade) {
             $note->value = $value;
             $note->date = $date;
             $note->type = $type;
-            $note->comments = $comments;
+            $note->comments = $comment;
             break;
         }
     }
@@ -65,4 +67,4 @@ if (isset($_POST["modify"]) && $_POST["modify"] == "true") {
 }
 
 
-fclose($file);
+// fclose($file);
