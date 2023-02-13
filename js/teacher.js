@@ -55,6 +55,7 @@ xhr.onreadystatechange = function () {
                 value: gradeInput.value,
                 date: dateInput.value,
                 type: type.value,
+                coef: type.value == "oral" ? "1" : "2",
                 id_student: j + 1,
                 subject: subject.value,
                 comments: commentInput.value,

@@ -1,6 +1,8 @@
 let connectTeacherBtn = document.querySelector("#connect-teacher-btn");
 let connectStudentBtn = document.querySelector("#connect-student-btn");
 let errorMessage = document.querySelector("#error-msg");
+var teacherEmailValue = "";
+var teacherPasswordValue = "";
 
 // ---------------Connexion du professeur----------------------
 connectTeacherBtn.addEventListener("click", () => {
@@ -26,6 +28,8 @@ connectTeacherBtn.addEventListener("click", () => {
                         };
                         localStorage.setItem("userInfo", JSON.stringify(infos))
                         window.location.href = "../teacher.html";
+                        teacherEmailValue = teacherEmail.value;
+                        teacherPasswordValue = teacherPassword.value;
                         break;
                     } else {
                         console.log("mot de passe erroné");
@@ -78,3 +82,8 @@ connectStudentBtn.addEventListener("click", () => {
     };
     xhr.send();
 })
+
+module.exports = {
+    teacherEmailValue: teacherEmailValue || "sophie.lemaire@yahoo.fr",
+    teacherPasswordValue: teacherPasswordValue || "sophieLemaire"
+};
