@@ -16,6 +16,31 @@
 
     <title>Page professeur</title>
 </head>
+
+<body class="min-vh-100">
+
+    <header class="d-flex justify-content-around align-items-center p-2 ">
+        <img src="./assets/logo.png" alt="logoSite" class="logo">
+        <div id="containerHeader" class="d-flex flex-column flex-md-row m-2">
+            <div class="transparent_bg d-flex h-25 px-4 py-2 align-items-center justify-content-md-between m-2 w-100">
+                <p id="motto" class="text-light"> Discere fasciendo est vera doctrina</p>
+                <div id="picAndLogout"></div>
+            </div>
+            <div class="choice d-flex flex-column align-items-center py-5">
+                <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                    <label class="btn btn-secondary active">
+                        <input type="radio" name="filter1" id="filter1-0" checked>
+                        <a href="teacher.html">Teachers</a>
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="filter1" id="filter1-2">
+                        <a href="#">Log out</a>
+                    </label>   
+                </div>
+            </div>
+         </div>
+    </header>
+
 <!-- MODAL DETAIL GRADE -->
 <!-- Button trigger modal -->
 
@@ -86,22 +111,7 @@
 
 <!--END MODAL DETAIL GRADE -->
 
-<body class="mw-100 vh-100">
-    <header class="d-flex justify-content-between align-items-center p-2 ">
-        <img src="./assets/logo.png" alt="logoSite" class="logo">
-
-        <div class="transparent_bg d-flex h-25 px-4 py-2 align-items-center justify-content-between">
-            <p id="motto" class="text-light"> Discere fasciendo est vera doctrina</p>
-            <div id="picAndLogout">
-
-            </div>
-        </div>
-        <button id="logoutBtn">
-            <i class="bi bi-x-circle-fill text-danger" class="img-fluid" style="font-size:40px"></i>
-        </button>
-        </div>
-
-    </header>
+    
     <section id="students-cards-content">
 
     </section>

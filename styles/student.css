@@ -1,5 +1,8 @@
 /* MAIN */
 
+body {
+    margin:auto;
+}
 /* Notebook page effect */
 
 .paper {
@@ -72,4 +75,47 @@ th, td {
 
 .table {
     border-bottom-color: transparent;
+}
+
+/* Responsive */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    
+/* Styles pour cette Media Queries */
+
+    #coef {
+        display: none;
+    }
+
+    .coef-content-math,
+.coef-content-history,
+.coef-content-english,
+.coef-content-physique,
+.coef-content-french {
+    display: none;
+}
+
+#average {
+    display: none;
+}
+
+.average-maths,
+.average-history,
+.average-english,
+.average-physique,
+.average-french {
+    display: none;
+}
+
+.falseLinks {
+    display: none;
+}
+
+.item {
+ width:100px;
+}
+
+#newValue, #newDate, #newType, #newComment {
+    width: 250px;
+}
 }
