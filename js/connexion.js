@@ -1,15 +1,10 @@
+import { isValidMail } from './controllerStudent.js';
 let connectTeacherBtn = document.querySelector("#connect-teacher-btn");
 let connectStudentBtn = document.querySelector("#connect-student-btn");
 let errorMessage = document.querySelector("#error-msg");
 var teacherEmailValue = "";
 var teacherPasswordValue = "";
 
-// Vérification du format de l'adresse mail
-const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-function isValidMail(mail) {
-  result = EMAIL_REGEX.test(mail)
-  return result;
-}
 
 // ---------------Connexion du professeur----------------------
 connectTeacherBtn.addEventListener("click", () => {
@@ -88,8 +83,8 @@ connectStudentBtn.addEventListener("click", () => {
   xhr.send();
 })
 
-module.exports = {
-  isValidMail
-};
+// module.exports = {
+//   isValidMail
+// };
 
 

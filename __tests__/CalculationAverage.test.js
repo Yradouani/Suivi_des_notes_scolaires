@@ -1,9 +1,9 @@
-const controller = require('../js/controllerStudent');
+import { average } from '../js/controllerStudent.js';
 
 describe('isValidAverage', () => {
     // Validate average
     it('should return true if average is valid', () => {
-        expect(controller.average(28, 3)).toEqual(9.33);
+        expect(average(28, 3)).toEqual(9.33);
     });
 
 });
