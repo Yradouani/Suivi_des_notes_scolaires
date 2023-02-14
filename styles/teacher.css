@@ -2,7 +2,8 @@
     box-sizing: border-box;
 }
 body {
-    margin: 0;
+    margin: auto;
+    overflow-x: hidden;
 }
 
 #header-img {
@@ -93,7 +94,9 @@ box-shadow: none;
 }
 
 @media (max-width:900px) {
-    .cards{
+
+    .cards {
+
         width: 40%;
     }
 }

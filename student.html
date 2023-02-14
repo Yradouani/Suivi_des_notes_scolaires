@@ -19,31 +19,9 @@
     <title>Student page</title>
 </head>
 
-<body class="mw-100 min-vh-100">
+<body class="min-vh-100">
 
-    <!-- <header class="d-flex flex-md-row justify-content-between align-items-center p-2 h-25">
-         <img src="./assets/logo.png"  alt="logoSite" class="img-fluid">   
-            <div class="transparent_bg d-flex h-25 p-2 align-items-center justify-content-around">
-                <p id="motto" class="text-light"> Discere fasciendo est vera doctrina</p>
-            </div>       
-            <img src="./assets/boy2.jpg" alt="student picture" class="img-fluid rounded-circle w-25"> 
-        <button id="logoutBtn" class="">
-            <i class="bi bi-x-circle-fill text-danger"  class="img-fluid" style="font-size:50px"></i>
-        </button>      
-    </header> -->
-
-    <!-- <header class="d-flex flex-md-row justify-content-between align-items-center p-2 h-25">
-         <img src="./assets/logo.png"  alt="logoSite" class="img-fluid">   
-            <div class="transparent_bg d-flex h-25 p-2 align-items-center justify-content-around">
-                <p id="motto" class="text-light"> Discere fasciendo est vera doctrina</p>
-            </div>       
-            <img src="./assets/boy2.jpg" alt="student picture" class="img-fluid rounded-circle w-25"> 
-        <button id="logoutBtn" class="">
-            <i class="bi bi-x-circle-fill text-danger"  class="img-fluid" style="font-size:50px"></i>
-        </button>      
-    </header> -->
-
-    <header class="d-flex justify-content-between align-items-center p-2 ">
+    <header class="d-flex justify-content-between align-items-center p-2">
         <img src="./assets/logo.png" alt="logoSite" class="logo">
 
         <div class="transparent_bg d-flex h-25 px-4 py-2 align-items-center justify-content-between">
@@ -75,9 +53,9 @@
 
     <h1 class="text-center my-4"></h1>
 
-    <div class="paper m-2 py-3">
+    <div class="paper m-1 py-3">
         <div class="paper paper--alt"></div>
-        <div class="containerTable p-2">
+        <div class="containerTable p-1">
             <div id="table_title" class="pinkLine d-flex justify-content-around p-3">
                 <a href="#" class="falseLinks">1er trimestre</a>
                 <a href="#" class="falseLinks">2ème trimestre</a>
@@ -86,24 +64,19 @@
                 <button type="btn" class="btn-progress">Ma progression sur l'année</button>
             </div>
             <table class="table">
-                <thead>
+                <thead class="w-100">
                     <tr class="whiteLine">
                         <th scope="col">Disciplines</th>
-                        <th scope="col">Coef</th>
+                        <th scope="col" id="coef">Coef</th>
                         <th scope="col">Notes</th>
-                        <th scope="col">Moyennes</th>
+                        <th scope="col" id="average">Moyennes</th>
                         <th scope="col">Graphiques</th>
                     </tr>
                 </thead>
-                <tbody id="studentReport">
+                <tbody id="studentReport" class="w">
                     <!-- Scholar report dynamically inserted with JS -->
                     <tr class="pinkLine maths" id="Mathématiques">
                         <th scope="row">Mathématiques</th>
-                        <!-- <td class="coef"></td>
-                        <td class="average"></td> -->
-                        <!-- <td class="grade"></td> -->
-                        <!-- <td class="graph"><a href=""><img src="./assets/stats.jpg" alt="graph_link"
-                            width="70"></a></td>                       -->
                     </tr>
                     <tr class="whiteLine french" id="Français">
                         <th scope="row">Français</th>

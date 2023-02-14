@@ -433,8 +433,7 @@ if (typeUser == "student") {
       document.querySelector(".french").innerHTML += `
         <td class="average-maths"><span>${frenchAverage}</span></td>
         <td class="graph_link">
-        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${paramValue}" src="./assets/stats.png
-        " alt="graph_link" width="70">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
 
       // English
