@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="/styles/modal.css">
     <link rel="stylesheet" href="./styles/student.css">
     <link rel="stylesheet" href="./styles/extensions.css">
+    <link rel="stylesheet" href="./styles/stylebutton.css">
+    <link rel="icon" href="/assets/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" src="infex.js"></script>
     <title>Student page</title>
 </head>
 
@@ -24,6 +27,20 @@
         <div class="transparent_bg d-flex h-25 px-4 py-2 align-items-center justify-content-between">
             <p id="motto" class="text-light"> Discere fasciendo est vera doctrina</p>
             <div id="picAndLogout">
+            </div>
+        </div>
+        <div class="choice d-flex flex-column align-items-center py-5">
+            <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                    <input type="radio" name="filter1" id="filter1-0" checked> Students
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="filter1" class="filter" id="filter1-1">
+                    <a href="teacher.html">Trombinoscope</a>
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="filter1" id="filter1-2"> Log out
+                </label>
             </div>
         </div>
         <button id="logoutBtn">
@@ -44,7 +61,7 @@
                 <a href="#" class="falseLinks">2ème trimestre</a>
                 <a href="#" class="falseLinks">3ème trimestre</a>
                 <!-- Vers modal -->
-                <button type="btn">Ma progression sur l'année</button>
+                <button type="btn" class="btn-progress">Ma progression sur l'année</button>
             </div>
             <table class="table">
                 <thead class="w-100">
@@ -151,6 +168,25 @@
 
 
     <!--END MODAL DETAIL GRADE -->
+    <!-- MODAL STATISTIC GRADE -->
+    <!-- Modal -->
+    <div class="modal fade" id="staticSubject" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
+
+                
+
+            </div>
+        </div>
+    </div>
+    <!-- END MODAL STATISTIC GRADE -->
 
     <footer class="d-flex justify-content-around align-items-center">
 

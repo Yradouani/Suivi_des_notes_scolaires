@@ -164,12 +164,12 @@ if (typeUser == "student") {
         coefMathSomme += parseInt(coefMathGrades[j]);
       }
       let mathAverage = parseInt(mathSomme) / parseInt(coefMathSomme);
+      mathAverage = mathAverage.toFixed(2);
       document.querySelector(".maths").innerHTML += `
       <td class="average-maths"><span>${mathAverage}</span></td>
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
-
       `;
       // French
       for (let j = 0; j < frenchGrades.length; j++) {
@@ -187,12 +187,12 @@ if (typeUser == "student") {
         coefFrenchSomme += parseInt(coefFrenchGrades[j]);
       }
       let frenchAverage = parseInt(frenchSomme) / parseInt(coefFrenchSomme);
+      frenchAverage = frenchAverage.toFixed(2);
       document.querySelector(".french").innerHTML += `
       <td class="average-maths"><span>${frenchAverage}</span></td>
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
-
       `;
 
       // English
@@ -211,12 +211,12 @@ if (typeUser == "student") {
         coefEnglishSomme += parseInt(coefEnglishGrades[j]);
       }
       let englishAverage = parseInt(englishSomme) / parseInt(coefEnglishSomme);
+      englishAverage = englishAverage.toFixed(2);
       document.querySelector(".english").innerHTML += `
       <td class="average-maths"><span>${englishAverage}<span></td>
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
-
       `;
 
       // Physique
@@ -237,12 +237,12 @@ if (typeUser == "student") {
       }
       let physiqueAverage =
         parseInt(physiqueSomme) / parseInt(coefPhysiqueSomme);
+      physiqueAverage = physiqueAverage.toFixed(2);
       document.querySelector(".physique").innerHTML += `
       <td class="average-physique"><span>${physiqueAverage}<span></td>
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
-
       `;
 
       // History
@@ -261,12 +261,12 @@ if (typeUser == "student") {
         coefHistorySomme += parseInt(coefHistoryGrades[j]);
       }
       let historyAverage = parseInt(historySomme) / parseInt(coefHistorySomme);
+      historyAverage = historyAverage.toFixed(2);
       document.querySelector(".history").innerHTML += `
       <td class="average-history"><span>${historyAverage}<span></td>
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
-
       `;
     }
 
@@ -406,6 +406,7 @@ if (typeUser == "student") {
         coefMathSomme += parseInt(coefMathGrades[j]);
       }
       let mathAverage = parseInt(mathSomme) / parseInt(coefMathSomme);
+      mathAverage = mathAverage.toFixed(2);
       document.querySelector(".maths").innerHTML += `
         <td class="average-maths"><span>${mathAverage}</span></td>
         <td class="graph_link">
@@ -428,6 +429,7 @@ if (typeUser == "student") {
         coefFrenchSomme += parseInt(coefFrenchGrades[j]);
       }
       let frenchAverage = parseInt(frenchSomme) / parseInt(coefFrenchSomme);
+      frenchAverage = frenchAverage.toFixed(2);
       document.querySelector(".french").innerHTML += `
         <td class="average-maths"><span>${frenchAverage}</span></td>
         <td class="graph_link">
@@ -450,6 +452,7 @@ if (typeUser == "student") {
         coefEnglishSomme += parseInt(coefEnglishGrades[j]);
       }
       let englishAverage = parseInt(englishSomme) / parseInt(coefEnglishSomme);
+      englishAverage = englishAverage.toFixed(2);
       document.querySelector(".english").innerHTML += `
         <td class="average-maths"><span>${englishAverage}<span></td>
         <td class="graph_link">
@@ -474,6 +477,7 @@ if (typeUser == "student") {
       }
       let physiqueAverage =
         parseInt(physiqueSomme) / parseInt(coefPhysiqueSomme);
+      physiqueAverage = physiqueAverage.toFixed(2);
       document.querySelector(".physique").innerHTML += `
         <td class="average-physique"><span>${physiqueAverage}<span></td>
         <td class="graph_link">
@@ -496,6 +500,7 @@ if (typeUser == "student") {
         coefHistorySomme += parseInt(coefHistoryGrades[j]);
       }
       let historyAverage = parseInt(historySomme) / parseInt(coefHistorySomme);
+      historyAverage = historyAverage.toFixed(2);
       document.querySelector(".history").innerHTML += `
         <td class="average-history"><span>${historyAverage}<span></td>
         <td class="graph_link">
@@ -543,3 +548,5 @@ deconnectionBtn.addEventListener("click", () => {
   localStorage.removeItem("userInfo");
   window.location.href = "../index.html";
 });
+
+
