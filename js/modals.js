@@ -117,6 +117,7 @@ for (let i = 0; i < grades.length; i++) {
 const ctx = document.getElementById('myChart');
 const chart = document.querySelectorAll(".chartButton");
 
+
 fetch('./server/grades.json')
   .then(response => response.json())
   .then(data => {
@@ -127,13 +128,17 @@ fetch('./server/grades.json')
         const labels = [];
         const values = [];
         data.filter(grade => grade.subject == chart[i].dataset.subject && grade.id_student == chart[i].dataset.student).forEach(grade => {
+          console.log(chart[i].dataset.student);
           labels.push(grade.date);
           values.push(grade.value);
+          console.log(grade);
+          
         });
 
         if (graphik) {
           graphik.destroy();
         }
+        ctx.innerHTML = '<canvas id="myChart"></canvas>';
         graphik = new Chart(ctx, {
           type: 'bar',
           data: {
