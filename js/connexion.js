@@ -4,44 +4,51 @@ let errorMessage = document.querySelector("#error-msg");
 var teacherEmailValue = "";
 var teacherPasswordValue = "";
 
+// Vérification du format de l'adresse mail
+const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+function isValidMail(mail) {
+  result = EMAIL_REGEX.test(mail)
+  return result;
+}
+
 // ---------------Connexion du professeur----------------------
 connectTeacherBtn.addEventListener("click", () => {
   let teacherEmail = document.querySelector("#teacher-email");
   let teacherPassword = document.querySelector("#teacher-password");
 
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "../teachers.json", true);
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          var xmlDoc = JSON.parse(xhr.responseText);
-          console.log(xmlDoc);
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "../teachers.json", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var xmlDoc = JSON.parse(xhr.responseText);
+      console.log(xmlDoc);
 
 
-          for (let i = 0; i < xmlDoc.length; i++) {
-            if (xmlDoc[i].email == teacherEmail.value) {
-              console.log("adresse mail connue");
-              if (xmlDoc[i].password == teacherPassword.value) {
-                console.log("connexion validée");
-                let infos = {
-                  id: xmlDoc[i].id,
-                  type: "teacher",
-                };
-                localStorage.setItem("userInfo", JSON.stringify(infos));
-                window.location.href = "../teacher.html";
-                break;
-              } else {
-                console.log("mot de passe erroné");
-                errorMessage.innerHTML = "Mot de passe incorrect";
-              }
-            } else {
-              console.log("adresse mail inconnue");
-              errorMessage.innerHTML = "Adresse mail incorrecte";
-            }
+      for (let i = 0; i < xmlDoc.length; i++) {
+        if (xmlDoc[i].email == teacherEmail.value && isValidMail(teacherEmail.value)) {
+          console.log("adresse mail connue");
+          if (xmlDoc[i].password == teacherPassword.value) {
+            console.log("connexion validée");
+            let infos = {
+              id: xmlDoc[i].id,
+              type: "teacher",
+            };
+            localStorage.setItem("userInfo", JSON.stringify(infos));
+            window.location.href = "../teacher.html";
+            break;
+          } else {
+            console.log("mot de passe erroné");
+            errorMessage.innerHTML = "Mot de passe incorrect";
           }
+        } else {
+          console.log("adresse mail inconnue");
+          errorMessage.innerHTML = "Adresse mail incorrecte";
         }
-      };
-      xhr.send();
-    });
+      }
+    }
+  };
+  xhr.send();
+});
 
 // ---------------Connexion de l'élève----------------------
 connectStudentBtn.addEventListener("click", () => {
@@ -56,7 +63,7 @@ connectStudentBtn.addEventListener("click", () => {
       console.log(xmlDoc);
 
       for (let i = 0; i < xmlDoc.length; i++) {
-        if (xmlDoc[i].email == studentEmail.value) {
+        if (xmlDoc[i].email == studentEmail.value && isValidMail(studentEmail.value)) {
           console.log("adresse mail connue");
           if (xmlDoc[i].password == studentPassword.value) {
             console.log("connexion validée");
@@ -82,8 +89,7 @@ connectStudentBtn.addEventListener("click", () => {
 })
 
 module.exports = {
-  teacherEmailValue: teacherEmailValue || "sophie.lemaire@yahoo.fr",
-  teacherPasswordValue: teacherPasswordValue || "sophieLemaire"
+  isValidMail
 };
 
 

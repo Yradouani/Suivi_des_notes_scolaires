@@ -19,6 +19,13 @@
   "devDependencies": {
     "jest": "^29.4.2",
     "jest-environment-jsdom": "^29.4.2",
-    "jsdom": "^21.1.0"
+    "jest-fetch-mock": "^3.0.3",
+    "jest-localstorage-mock": "^2.4.26",
+    "jsdom": "^21.1.0",
+    "node-fetch": "^3.3.0"
+  },
+  "dependencies": {
+    "async": "^3.2.4",
+    "xhr2": "^0.2.1"
   }
 }

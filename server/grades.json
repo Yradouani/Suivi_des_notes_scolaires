@@ -1168,5 +1168,35 @@
         "id_student": 3,
         "subject": "Anglais",
         "comments": "Bravo"
+    },
+    {
+        "id": 118,
+        "value": "20",
+        "date": "2023-01-04",
+        "type": "oral",
+        "coef": "1",
+        "id_student": 2,
+        "subject": "Histoire",
+        "comments": "Génial !!"
+    },
+    {
+        "id": 119,
+        "value": "20",
+        "date": "2023-01-04",
+        "type": "oral",
+        "coef": "1",
+        "id_student": 4,
+        "subject": "Histoire",
+        "comments": "Génial !!"
+    },
+    {
+        "id": 120,
+        "value": "20",
+        "date": "2023-01-04",
+        "type": "oral",
+        "coef": "1",
+        "id_student": 8,
+        "subject": "Histoire",
+        "comments": "Génial !!"
     }
 ]

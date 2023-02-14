@@ -113,7 +113,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Détails de l'évaluation</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeBtn"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="closeBtn"></button>
                 </div>
 
                 <div class="modal-body">
@@ -140,33 +141,37 @@
                                 <span class="value" id="comment"></span>
                             </div>
                             <div class="modal-footer" id="modalFooter">
-                                <button type="button" class="btn btn-secondary modif-grade-btn" data-dismiss="modal">Modifier</button>
+                                <button type="button" class="btn btn-secondary modif-grade-btn"
+                                    data-dismiss="modal">Modifier</button>
                                 <button type="button" class="btn btn-primary delete-grade-btn">Supprimer</button>
                             </div>
-                       
-                 <!-- MODIF FORM -->
-                        <form class="card-about" id="modifForm" >
-                            <div class="item">
-                                <label for="value" class="label form">Valeur</label>
-                                <input id="newValue" type="text" class="form" value=""> 
-                            </div>
-                            <div class="item">
-                                <label for="date" class="label form">Date</label>
-                                <input id="newDate" type="text" class="form" value="">
-                            </div>
-                            <div class="item">
-                                <label for="type" class="label form" >Type</label>
-                                <input id="newType" type="text" class="form" value="">
-                            </div>
-                        <div class="comment">
-                            <label for="comment" class="label form">Commentaire</label>
-                            <textarea rows="2" id="newComment" type="text" class="form"> </textarea>
+
+                            <!-- MODIF FORM -->
+                            <form class="card-about" id="modifForm">
+                                <div class="item">
+                                    <label for="value" class="label form">Valeur</label>
+                                    <input id="newValue" type="text" class="form" value="">
+                                </div>
+                                <div class="item">
+                                    <label for="date" class="label form">Date</label>
+                                    <input id="newDate" type="text" class="form" value="">
+                                </div>
+                                <div class="item">
+                                    <label for="type" class="label form">Type</label>
+                                    <input id="newType" type="text" class="form" value="">
+                                </div>
+                                <div class="comment">
+                                    <label for="comment" class="label form">Commentaire</label>
+                                    <textarea rows="2" id="newComment" type="text" class="form"> </textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary modif-grade-confirm"
+                                        data-dismiss="modal"
+                                        onclick="return confirm('Etes-vous sûr de vouloir effectuer ces modifications ?')">Enregistrer
+                                        les modifications</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="modal-footer" >
-                            <button type="button" class="btn btn-secondary modif-grade-confirm" data-dismiss="modal" onclick="return confirm('Etes-vous sûr de vouloir effectuer ces modifications ?')">Enregistrer les modifications</button>
-                        </div>
-                    </form>
-                </div>        
                     </div>
                     <div class="tape-section"></div>
                 </div>
@@ -192,7 +197,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    <script src="./js/student.js"></script>
+    <script type="module" src="./js/student.js"></script>
+    <!-- <script src="bundle.js"></script> -->
+
     <!-- <script src="./js/modals.js" defer></script> -->
 
 </body>
