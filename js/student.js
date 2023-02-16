@@ -189,7 +189,7 @@ if (typeUser == "student") {
       let frenchAverage = parseInt(frenchSomme) / parseInt(coefFrenchSomme);
       frenchAverage = frenchAverage.toFixed(2);
       document.querySelector(".french").innerHTML += `
-      <td class="average-maths"><span>${frenchAverage}</span></td>
+      <td class="average-french"><span>${frenchAverage}</span></td>
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
@@ -213,7 +213,7 @@ if (typeUser == "student") {
       let englishAverage = parseInt(englishSomme) / parseInt(coefEnglishSomme);
       englishAverage = englishAverage.toFixed(2);
       document.querySelector(".english").innerHTML += `
-      <td class="average-maths"><span>${englishAverage}<span></td>
+      <td class="average-english"><span>${englishAverage}<span></td>
       <td class="graph_link">
       <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
@@ -282,6 +282,25 @@ if (typeUser == "student") {
 
   // Displaying student datas if teacher is connected
 } else if (typeUser == "teacher") {
+  // Restricted access to update and delete buttons for grades
+  let modalFooter = document.getElementById("modalFooter");
+  modalFooter.innerHTML = `<button type="button" class="btn btn-secondary modif-grade-btn" data-dismiss="modal">Modifier</button>
+  <button type="button" class="btn btn-primary delete-grade-btn">Supprimer</button>`;
+
+  // Restricted access to trombi buttons in header
+  let teacherButtonHeader = document.getElementById("teacherButtonHeader");
+  teacherButtonHeader.innerHTML = `     <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+ <label class="btn btn-secondary active">
+     <input type="radio" name="filter1" id="filter1-0" checked> Students
+ </label>
+ <label class="btn btn-secondary">
+     <input type="radio" name="filter1" class="filter" id="filter1-1">
+     <a href="teacher.html">Trombinoscope</a>
+ </label>
+ <label class="btn btn-secondary">
+     <input type="radio" name="filter1" id="filter1-2"> Log out
+ </label>`;
+
   var xhr2 = new XMLHttpRequest();
   xhr2.open("GET", "../teachers.json", true);
   xhr2.onreadystatechange = function () {
@@ -305,7 +324,7 @@ if (typeUser == "student") {
   xhr2.send();
 
   // Displaying school report of the student
-  let studentReport = document.querySelector("#studentReport");
+  // let studentReport = document.querySelector("#studentReport");
   var xhr3 = new XMLHttpRequest();
   const urlParams = new URLSearchParams(window.location.search);
   const paramValue = urlParams.get("id");
@@ -431,7 +450,7 @@ if (typeUser == "student") {
       let frenchAverage = parseInt(frenchSomme) / parseInt(coefFrenchSomme);
       frenchAverage = frenchAverage.toFixed(2);
       document.querySelector(".french").innerHTML += `
-        <td class="average-maths"><span>${frenchAverage}</span></td>
+        <td class="average-french"><span>${frenchAverage}</span></td>
         <td class="graph_link">
         <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
@@ -454,7 +473,7 @@ if (typeUser == "student") {
       let englishAverage = parseInt(englishSomme) / parseInt(coefEnglishSomme);
       englishAverage = englishAverage.toFixed(2);
       document.querySelector(".english").innerHTML += `
-        <td class="average-maths"><span>${englishAverage}<span></td>
+        <td class="average-english"><span>${englishAverage}<span></td>
         <td class="graph_link">
         <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
@@ -467,10 +486,11 @@ if (typeUser == "student") {
           ).innerHTML += `<td class="grade-content-physique"></td>`;
           tdPhysique = true;
         }
-
+        let gradePhysique = document.querySelector(".grade-content-physique");
+        console.log(gradePhysique);
         document.querySelector(
           ".grade-content-physique"
-        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${mathGrades[j][0]}>${physiqueGrades[j][1]}</button>`;
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${physiqueGrades[j][0]}>${physiqueGrades[j][1]}</button>`;
         physiqueSomme +=
           parseInt(physiqueGrades[j][1]) * parseInt(coefPhysiqueGrades[j]);
         coefPhysiqueSomme += parseInt(coefPhysiqueGrades[j]);
@@ -548,5 +568,3 @@ deconnectionBtn.addEventListener("click", () => {
   localStorage.removeItem("userInfo");
   window.location.href = "../index.html";
 });
-
-

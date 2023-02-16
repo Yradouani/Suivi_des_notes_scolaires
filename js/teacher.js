@@ -36,13 +36,20 @@ xhr.onreadystatechange = function () {
       console.log(addGradeButtons[j]);
       addGradeButtons[j].addEventListener("click", () => {
         let validateGradeBtn = document.querySelector(".add-grade-btn");
-        validateGradeBtn.addEventListener("click", () => {
-          let type = document.querySelector("#eval-choice");
-          let subject = document.querySelector("#subject");
-          let dateInput = document.querySelector("#date");
-          let gradeInput = document.querySelector("#grade");
-          let commentInput = document.querySelector("#comment");
 
+        let type = document.querySelector("#eval-choice");
+        let subject = document.querySelector("#subject");
+        let dateInput = document.querySelector("#date");
+        let gradeInput = document.querySelector("#grade");
+        let commentInput = document.querySelector("#comment");
+
+        type.value = "";
+        subject.value = "";
+        dateInput.value = "";
+        gradeInput.value = "";
+        commentInput.value = "";
+
+        validateGradeBtn.addEventListener("click", () => {
           var xhr2 = new XMLHttpRequest();
           xhr2.open("GET", "../server/grades.json", true);
           xhr2.onreadystatechange = function () {
