@@ -22,7 +22,6 @@ while (($buffer = fgets($file, 4096)) !== false) {
 $json = json_decode($jsonDoc);
 
 // add a new grade
-
 if (isset($_POST["create"]) && $_POST["create"] == "true") {
     $content = json_decode($_POST["content"]);
     array_push($json, $content);
