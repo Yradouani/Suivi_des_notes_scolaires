@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body {
     margin: 0;
 }
@@ -19,7 +22,14 @@ body {
     padding: 10px;
     border-radius: 5px;
     margin: 10px auto;
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.2);
+  background: rgb(255, 255, 255);
+  color: rgb(25, 60, 77);
+  padding: 3ch;
+  border-radius: 2ch;
+  border: 1px solid rgb(212, 212, 212);
 }
+
 
 .cards img {
     width: 100%;
@@ -44,60 +54,70 @@ body {
     margin: 10px auto;
 }
 
-.add-btn {
+.btn-container .add-btn {
     background: #DDB2A7;
     border: none;
+    border-radius: 20px;
     padding: 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 16px;  
+box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0);
+transition: all 0.5s ease-in-out;
 }
-
-.grade-btn {
+.btn-container .add-btn:hover {
+box-shadow: none;
+}
+.btn-container .grade-btn {
     background: #8D9DBF;
     border: none;
+    border-radius: 20px;
     padding: 10px;
     cursor: pointer;
     font-size: 16px;
+    box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0);
+    transition: all 0.5s;
 }
-
-.grade-btn a {
+.btn-container .grade-btn:hover {
+    box-shadow: none;
+    }
+.btn-container .grade-btn a {
     text-decoration: none;
     color: inherit;
 }
 
 
 @media (max-width:1100px) {
-    .card {
+    .cards {
         width: 30%;
     }
 }
 
 @media (max-width:900px) {
-    .card {
+    .cards{
         width: 40%;
     }
 }
 
 @media (max-width:720px) {
-    .card {
+    .cards {
         width: 48%;
     }
 }
 
 @media (max-width:600px) {
-    .card {
+    .cards {
         width: 60%;
     }
 }
 
 @media (max-width:500px) {
-    .card {
+    .cards {
         width: 70%;
     }
 }
 
 @media (max-width:420px) {
-    .card {
+    .cards {
         width: 80%;
     }
 }
