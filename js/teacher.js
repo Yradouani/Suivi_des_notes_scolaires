@@ -1,11 +1,18 @@
+import {
+  isValidValue,
+  isValidDate,
+  isDateBeforeToday,
+  isValidComment,
+  isValidGradeType,
+  isValidGradeSubject
+} from './controller.js';
+
 let studentsCardsContent = document.querySelector("#students-cards-content");
 let deconnectionBtn = document.querySelector("#logoutBtn");
 
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "../server/students.json", true);
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    var xmlDoc = JSON.parse(xhr.response);
+fetch("../server/students.json")
+  .then(response => response.json())
+  .then(xmlDoc => {
     console.log(xmlDoc);
     let lastId = xmlDoc[xmlDoc.length];
     console.log("le dernier id est : " + lastId);
@@ -43,76 +50,69 @@ xhr.onreadystatechange = function () {
         let gradeInput = document.querySelector("#grade");
         let commentInput = document.querySelector("#comment");
 
-        type.value = "";
-        subject.value = "";
-        dateInput.value = "";
-        gradeInput.value = "";
-        commentInput.value = "";
-
         validateGradeBtn.addEventListener("click", () => {
-          var xhr2 = new XMLHttpRequest();
-          xhr2.open("GET", "../server/grades.json", true);
-          xhr2.onreadystatechange = function () {
-            if (xhr2.readyState === 4 && xhr2.status === 200) {
-              var xmlGrade = JSON.parse(xhr2.response);
+         
+
+          fetch("../server/grades.json")
+            .then(response => response.json())
+            .then(xmlGrade => {
+
               var gradesNumber = xmlGrade.length;
 
-              let gradeInfo = {
-                id: gradesNumber + 1,
-                value: gradeInput.value,
-                date: dateInput.value,
-                type: type.value,
-                coef: type.value == "oral" ? "1" : "2",
-                id_student: j + 1,
-                subject: subject.value,
-                comments: commentInput.value,
-              };
-
-              // Envoi de la requête au serveur
-              fetch("http://127.0.0.1:8000/json.php", {
-                method: "POST",
-                headers: {
-                  "Content-type":
-                    "application/x-www-form-urlencoded; charset=UTF-8",
-                },
-                body: "content=" + JSON.stringify(gradeInfo) + "&create=true",
-              })
-                .then((res) => {
-                  console.log(res);
+              if (isValidValue(gradeInput.value) && isValidDate(dateInput.value) && isDateBeforeToday(dateInput.value) && isValidComment(commentInput.value) && isValidGradeType(type.value) && isValidGradeSubject(subject.value)) {
+                let gradeInfo = {
+                  id: gradesNumber + 1,
+                  value: gradeInput.value,
+                  date: dateInput.value,
+                  type: type.value,
+                  coef: type.value == "oral" ? "1" : "2",
+                  id_student: j + 1,
+                  subject: subject.value,
+                  comments: commentInput.value,
+                };
+                console.log(gradeInfo)
+                // Envoi de la requête au serveur
+                fetch("http://127.0.0.1:8000/json.php", {
+                  method: "POST",
+                  headers: {
+                    "Content-type":
+                      "application/x-www-form-urlencoded; charset=UTF-8",
+                  },
+                  body: "content=" + JSON.stringify(gradeInfo) + "&create=true",
                 })
-                .catch((err) => {
-                  console.log(err);
-                });
-            }
-          };
-          xhr2.send();
+                  .then((res) => {
+                    console.log(res);
+                        type.value = "";
+                        subject.value = "";
+                        dateInput.value = "";
+                        gradeInput.value = "";
+                        commentInput.value = "";
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              } else {
+
+              }
+
+            });
         });
       });
     }
-  }
-};
-xhr.send();
+  });
 
 // Affichage de la photo du professeur dynamiquement
-var xhr1 = new XMLHttpRequest();
-xhr1.open("GET", "../teachers.json", true);
-xhr1.onreadystatechange = function () {
-  if (xhr1.readyState === 4 && xhr1.status === 200) {
-    var xmlDoc = JSON.parse(xhr1.response);
-
+fetch("../teachers.json")
+  .then(response => response.json())
+  .then(json => {
     let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(userInfo);
-    for (let i = 0; i < xmlDoc.length; i++) {
-      if (xmlDoc[i].id == userInfo.id) {
-        document.querySelector("#picAndLogout").innerHTML += `
-                        <img src=${xmlDoc[i].picture} alt="student picture" class="img-fluid rounded-circle">
-                        <div id="name-content">${xmlDoc[i].firstname} ${xmlDoc[i].lastname}</div>
-                        `;
+    for (let i = 0; i < json.length; i++) {
+      if (json[i].id == userInfo.id) {
+        document.querySelector("#picAndLogout").innerHTML += `<img src=${json[i].picture} alt="student picture" class="img-fluid rounded-circle"> <div id="name-content">${json[i].firstname} ${json[i].lastname}</div>`;
       }
     }
-  }
-};
-xhr1.send();
+  })
+  .catch(error => console.log(error));
 
 // --------------Deconnection------------------
 deconnectionBtn.addEventListener("click", () => {
@@ -120,11 +120,3 @@ deconnectionBtn.addEventListener("click", () => {
   window.location.href = "../index.html";
 });
 
-// Voir le bulletin de l'élève
-let watchGradeButtons = document.querySelectorAll(".grade-btn");
-
-for (let j = 0; j < watchGradeButtons.length; j++) {
-  watchGradeButtons[j].addEventListener("click", () => {
-    console.log("coucou");
-  });
-}
