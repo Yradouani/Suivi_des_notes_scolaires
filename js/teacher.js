@@ -43,16 +43,20 @@ fetch("../server/students.json")
       console.log(addGradeButtons[j]);
       addGradeButtons[j].addEventListener("click", () => {
         let validateGradeBtn = document.querySelector(".add-grade-btn");
+
+        let type = document.querySelector("#eval-choice");
+        let subject = document.querySelector("#subject");
+        let dateInput = document.querySelector("#date");
+        let gradeInput = document.querySelector("#grade");
+        let commentInput = document.querySelector("#comment");
+
         validateGradeBtn.addEventListener("click", () => {
-          let type = document.querySelector("#eval-choice");
-          let subject = document.querySelector("#subject");
-          let dateInput = document.querySelector("#date");
-          let gradeInput = document.querySelector("#grade");
-          let commentInput = document.querySelector("#comment");
+         
 
           fetch("../server/grades.json")
             .then(response => response.json())
             .then(xmlGrade => {
+
               var gradesNumber = xmlGrade.length;
 
               if (isValidValue(gradeInput.value) && isValidDate(dateInput.value) && isDateBeforeToday(dateInput.value) && isValidComment(commentInput.value) && isValidGradeType(type.value) && isValidGradeSubject(subject.value)) {
@@ -78,6 +82,11 @@ fetch("../server/students.json")
                 })
                   .then((res) => {
                     console.log(res);
+                        type.value = "";
+                        subject.value = "";
+                        dateInput.value = "";
+                        gradeInput.value = "";
+                        commentInput.value = "";
                   })
                   .catch((err) => {
                     console.log(err);
