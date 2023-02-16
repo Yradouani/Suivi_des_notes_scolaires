@@ -28,10 +28,11 @@ xhr.onreadystatechange = function () {
                 </div>
             </div>`;
     }
-
     // Ajouter une note
+
     let addGradeButtons = document.querySelectorAll(".add-btn");
     console.log(addGradeButtons);
+
     for (let j = 0; j < addGradeButtons.length; j++) {
       console.log(addGradeButtons[j]);
       addGradeButtons[j].addEventListener("click", () => {
