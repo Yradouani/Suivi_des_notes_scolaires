@@ -1,4 +1,4 @@
-import { average } from '../js/controllerStudent.js';
+import { average } from '../js/controller.js';
 
 describe('isValidAverage', () => {
     // Validate average

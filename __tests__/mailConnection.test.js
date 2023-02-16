@@ -1,4 +1,4 @@
-import { isValidMail } from '../js/controllerStudent.js';
+import { isValidMail } from '../js/controller.js';
 
 describe('isEmail', () => {
     it('should be a valid email', () => {

@@ -1,4 +1,4 @@
-import { isValidValue, isValidDate, isDateBeforeToday, isValidComment, isValidGradeType, isValidGradeSubject } from '../js/controllerStudent';
+import { isValidValue, isValidDate, isDateBeforeToday, isValidComment, isValidGradeType, isValidGradeSubject } from '../js/controller';
 
 describe('isValidGrade', () => {
     // Validate value of grade

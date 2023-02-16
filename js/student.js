@@ -1,5 +1,5 @@
 //--------Displaying student picture--------------
-import { average } from './controllerStudent.js';
+import { average } from './controller.js';
 
 let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 let typeUser = userInfo.type;
@@ -395,6 +395,7 @@ if (typeUser == "student") {
 
         }
       }
+      console.log(mathGrades)
       // Maths
       console.log(mathGrades.length)
       for (let j = 0; j < mathGrades.length; j++) {
