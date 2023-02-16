@@ -1,5 +1,13 @@
 //--------Displaying student picture--------------
-import { average } from './controller.js';
+import {
+  average,
+  mathClassAverage,
+  frenchClassAverage,
+  historyClassAverage,
+  physicalClassAverage,
+  englishClassAverage,
+  globalAverage
+} from './controller.js';
 
 let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 let typeUser = userInfo.type;
@@ -469,7 +477,7 @@ if (typeUser == "student") {
 
         document.querySelector(
           ".grade-content-physique"
-        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${mathGrades[j][0]}>${physiqueGrades[j][1]}</button>`;
+        ).innerHTML += `<button class="grades" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id=${physiqueGrades[j][0]}>${physiqueGrades[j][1]}</button>`;
         physiqueSomme +=
           parseInt(physiqueGrades[j][1]) * parseInt(coefPhysiqueGrades[j]);
         coefPhysiqueSomme += parseInt(coefPhysiqueGrades[j]);
@@ -545,3 +553,9 @@ deconnectionBtn.addEventListener("click", () => {
   window.location.href = "../index.html";
 });
 
+mathClassAverage()
+frenchClassAverage()
+historyClassAverage()
+physicalClassAverage()
+englishClassAverage()
+globalAverage()

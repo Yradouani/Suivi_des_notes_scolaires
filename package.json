@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "async": "^3.2.4",
+    "isomorphic-fetch": "^3.0.0",
     "xhr2": "^0.2.1"
   },
   "type": "module"
