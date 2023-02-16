@@ -84,7 +84,7 @@ fetch("../server/students.json")
                     console.log(err);
                   });
               } else {
-
+                alert("Veuillez remplir tous les champs avant de valider la note.");
               }
 
             });
