@@ -1,4 +1,11 @@
-import { isValidValue, isValidDate, isDateBeforeToday, isValidComment, isValidGradeType, isValidGradeSubject } from './controllerStudent.js';
+import {
+  isValidValue,
+  isValidDate,
+  isDateBeforeToday,
+  isValidComment,
+  isValidGradeType,
+  isValidGradeSubject
+} from './controller.js';
 
 let studentsCardsContent = document.querySelector("#students-cards-content");
 let deconnectionBtn = document.querySelector("#logoutBtn");
@@ -48,7 +55,7 @@ fetch("../server/students.json")
             .then(xmlGrade => {
               var gradesNumber = xmlGrade.length;
 
-              if (isValidValue(gradeInput.value) && isValidDate(dateInput.value) && isDateBeforeToday(dateInput.value) && isValidComment(commentInput.value) && isValidGradeType(type.value)) {
+              if (isValidValue(gradeInput.value) && isValidDate(dateInput.value) && isDateBeforeToday(dateInput.value) && isValidComment(commentInput.value) && isValidGradeType(type.value) && isValidGradeSubject(subject.value)) {
                 let gradeInfo = {
                   id: gradesNumber + 1,
                   value: gradeInput.value,
@@ -59,7 +66,7 @@ fetch("../server/students.json")
                   subject: subject.value,
                   comments: commentInput.value,
                 };
-
+                console.log(gradeInfo)
                 // Envoi de la requête au serveur
                 fetch("http://127.0.0.1:8000/json.php", {
                   method: "POST",

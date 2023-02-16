@@ -22,7 +22,7 @@ export function isDateBeforeToday(dateString) {
     return date <= today;
 }
 export function isValidComment(comment) {
-    const COMMENT_REGEX = /^[a-zA-Z0-9À-ÿ\-_\s.,;:!?()€$£&<>\/]+$/u;
+    const COMMENT_REGEX = /^[a-zA-Z0-9À-ÿ\-_\s.,;:!?'()€$£&<>\/]+$/u;
     return COMMENT_REGEX.test(comment);
 }
 export function isValidGradeType(type) {
@@ -43,4 +43,109 @@ export function isValidMail(mail) {
     return EMAIL_REGEX.test(mail);
 }
 
+//Request
+export function performRequest() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://example.com/');
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState !== 4 || xhr.status !== 200) return;
+        callback(xhr.response);
+    };
+    xhr.responseType = 'json';
+    xhr.setRequestHeader('Accept', 'application/json');
+    xhr.send(null);
+}
 
+//Class's maths average
+export async function mathClassAverage() {
+    const response = await fetch("../server/grades.json");
+    const data = await response.json();
+    let gradeMathSomme = 0;
+    let coefSomme = 0;
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].subject == "Mathématiques") {
+            gradeMathSomme += parseInt(data[i].value) * parseInt(data[i].coef);
+            coefSomme += parseInt(data[i].coef);
+        }
+    }
+    const average = parseFloat(gradeMathSomme / coefSomme).toFixed(2);
+    console.log("La moyenne de la classe en Maths est : " + average);
+    return average;
+}
+
+//Class's french average
+export async function frenchClassAverage() {
+    fetch("../server/grades.json")
+    const response = await fetch("../server/grades.json");
+    const data = await response.json();
+    let gradeFrenchSomme = 0;
+    let coefSomme = 0;
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].subject == "Français") {
+            gradeFrenchSomme += (parseInt(data[i].value) * parseInt(data[i].coef));
+            coefSomme += parseInt(data[i].coef);
+        }
+    }
+    console.log("La moyenne de la classe en Français est : " + parseFloat(gradeFrenchSomme / coefSomme).toFixed(2));
+    return parseFloat(gradeFrenchSomme / coefSomme).toFixed(2);
+}
+
+//Class's history average
+export async function historyClassAverage() {
+    const response = await fetch("../server/grades.json");
+    const data = await response.json();
+    let gradeHistorySomme = 0;
+    let coefSomme = 0;
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].subject == "Histoire") {
+            gradeHistorySomme += (parseInt(data[i].value) * parseInt(data[i].coef));
+            coefSomme += parseInt(data[i].coef);
+        }
+    }
+    console.log("La moyenne de la classe en Histoire est : " + parseFloat(gradeHistorySomme / coefSomme).toFixed(2));
+    return parseFloat(gradeHistorySomme / coefSomme).toFixed(2);
+}
+
+//Class's physical average
+export async function physicalClassAverage() {
+    const response = await fetch("../server/grades.json");
+    const data = await response.json();
+    let gradePhysiqueSomme = 0;
+    let coefSomme = 0;
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].subject == "Physique") {
+            gradePhysiqueSomme += (parseInt(data[i].value) * parseInt(data[i].coef));
+            coefSomme += parseInt(data[i].coef);
+        }
+    }
+    console.log("La moyenne de la classe en Physique est : " + parseFloat(gradePhysiqueSomme / coefSomme).toFixed(2));
+    return parseFloat(gradePhysiqueSomme / coefSomme).toFixed(2);
+}
+
+//Class's english average
+export async function englishClassAverage() {
+    const response = await fetch("../server/grades.json");
+    const data = await response.json();
+    let gradeEnglishSomme = 0;
+    let coefSomme = 0;
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].subject == "Anglais") {
+            gradeEnglishSomme += (parseInt(data[i].value) * parseInt(data[i].coef));
+            coefSomme += parseInt(data[i].coef);
+        }
+    }
+    console.log("La moyenne de la classe en Anglais est : " + parseFloat(gradeEnglishSomme / coefSomme).toFixed(2));
+    return parseFloat(gradeEnglishSomme / coefSomme).toFixed(2);
+}
+
+//Class Global average
+export async function globalAverage() {
+    const mathAverage = await mathClassAverage();
+    const frenchAverage = await frenchClassAverage();
+    const englishAverage = await englishClassAverage();
+    const historyAverage = await historyClassAverage();
+    const physicalAverage = await physicalClassAverage();
+    let globalClassAverage = ((parseFloat(mathAverage) + parseFloat(frenchAverage) + parseFloat(englishAverage) + parseFloat(historyAverage) + parseFloat(physicalAverage)) / 5).toFixed(2);
+    console.log("La moyenne globale de la classe est : " + globalClassAverage);
+    return globalClassAverage;
+}

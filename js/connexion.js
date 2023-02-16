@@ -1,4 +1,4 @@
-import { isValidMail } from './controllerStudent.js';
+import { isValidMail } from './controller.js';
 let connectTeacherBtn = document.querySelector("#connect-teacher-btn");
 let connectStudentBtn = document.querySelector("#connect-student-btn");
 let errorMessage = document.querySelector("#error-msg");
@@ -17,7 +17,6 @@ connectTeacherBtn.addEventListener("click", () => {
     if (xhr.readyState === 4 && xhr.status === 200) {
       var xmlDoc = JSON.parse(xhr.responseText);
       console.log(xmlDoc);
-
 
       for (let i = 0; i < xmlDoc.length; i++) {
         if (xmlDoc[i].email == teacherEmail.value && isValidMail(teacherEmail.value)) {

@@ -44,8 +44,7 @@ describe('isValidGrade', () => {
         expect(isValidComment("Bonjour + Comment allez-vous ?")).toEqual(false);
         expect(isValidComment("Bonjour *")).toEqual(false);
         expect(isValidComment("Bonjour %")).toEqual(false);
-        expect(isValidComment("Bonjour ''")).toEqual(false);
-        expect(isValidComment("Bonjour \"\"")).toEqual(false);
+        expect(isValidComment("Bonjour \"")).toEqual(false);
         expect(isValidComment("Bonjour []")).toEqual(false);
     });
 
