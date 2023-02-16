@@ -48,9 +48,10 @@ body {
             display: flex;
             justify-content: center;
         }
-        .average-maths, .average-maths{
+        /* .average-maths, .average-maths{
             display: flex;
-        }
+        } */
+        
         .coef-content-math,
         .coef-content-history,
         .coef-content-english,
@@ -160,6 +161,7 @@ th, td {
     
     .marks {
         cursor: pointer;
+    }
 
 /* Responsive */
 
@@ -202,4 +204,5 @@ th, td {
 #newValue, #newDate, #newType, #newComment {
     width: 250px;
 }
+
 }

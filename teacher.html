@@ -20,6 +20,23 @@
 
 <body class="min-vh-100">
 
+   
+ <script> 
+//  Restricted access : if no connection (= empty local storage) then redirection
+let storage = localStorage.length;
+        // console.log(storage);
+        if (storage == 0) {
+            window.location.href = "./index.html";
+        };
+//  Restricted access to this page : if a student attempts to access : redirection 
+let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+let typeUser = userInfo.type;
+if (typeUser== "student") {
+    window.location.href = "./student.html";
+}
+</script>
+
+
     <header class="d-flex justify-content-around align-items-center p-2 ">
         <img src="./assets/logo.png" alt="logoSite" class="logo">
         <div id="containerHeader" class="d-flex flex-column flex-md-row m-2">
@@ -33,7 +50,7 @@
                         <input type="radio" name="filter1" id="filter1-0" checked>
                         <a href="teacher.html">Teachers</a>
                     </label>
-                    <label class="btn btn-secondary">
+                    <label class="btn btn-secondary" id="logoutBtn">
                         <input type="radio" name="filter1" id="filter1-2">
                         <a href="#">Log out</a>
                     </label>   

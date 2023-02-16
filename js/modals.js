@@ -2,12 +2,15 @@ let type = document.getElementById("type");
 let date = document.getElementById("date");
 let grade = document.getElementById("grade");
 let comment = document.getElementById("comment");
-
 let grades = document.querySelectorAll(".grades");
+
 console.log(grades);
 console.log(grades.length);
+
 for (let i = 0; i < grades.length; i++) {
   // console.log(grades[i]);
+
+  // Display datas
   grades[i].addEventListener("click", addValues);
   function addValues() {
     var xhr1 = new XMLHttpRequest();
@@ -73,7 +76,7 @@ for (let i = 0; i < grades.length; i++) {
             let confirmModifBtn = document.querySelector(
               ".modif-grade-confirm"
             );
-
+            // console.log(grades[i].dataset.id);
             confirmModifBtn.addEventListener("click", () => {
               if (
                 newValue != "" &&
@@ -113,71 +116,80 @@ for (let i = 0; i < grades.length; i++) {
     xhr1.send();
   }
 }
+
 // MODAL GRAPH INDIVIDUEL
-const ctx = document.getElementById('myChart');
+const ctx = document.getElementById("myChart");
 const chart = document.querySelectorAll(".chartButton");
 
-
-fetch('./server/grades.json')
-  .then(response => response.json())
-  .then(data => {
+fetch("./server/grades.json")
+  .then((response) => response.json())
+  .then((data) => {
     let graphik = null;
     for (let i = 0; i < chart.length; i++) {
       chart[i].addEventListener("click", graph);
       function graph() {
         const labels = [];
         const values = [];
-        data.filter(grade => grade.subject == chart[i].dataset.subject && grade.id_student == chart[i].dataset.student).forEach(grade => {
-          console.log(chart[i].dataset.student);
-          labels.push(grade.date);
-          values.push(grade.value);
-          console.log(grade);
-          
-        });
+        data
+          .filter(
+            (grade) =>
+              grade.subject == chart[i].dataset.subject &&
+              grade.id_student == chart[i].dataset.student
+          )
+          .forEach((grade) => {
+            console.log(chart[i].dataset.student);
+            labels.push(grade.date);
+            values.push(grade.value);
+            console.log(grade);
+          });
 
         if (graphik) {
           graphik.destroy();
         }
         ctx.innerHTML = '<canvas id="myChart"></canvas>';
         graphik = new Chart(ctx, {
-          type: 'bar',
+          type: "bar",
           data: {
             labels: labels,
-            datasets: [{
-              label: 'Notes',
-              data: values,
-              backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(201, 203, 207, 0.2)'
-              ],
+            datasets: [
+              {
+                label: "Notes",
+                data: values,
+                backgroundColor: [
+                  "rgba(255, 99, 132, 0.2)",
+                  "rgba(255, 159, 64, 0.2)",
+                  "rgba(255, 205, 86, 0.2)",
+                  "rgba(75, 192, 192, 0.2)",
+                  "rgba(54, 162, 235, 0.2)",
+                  "rgba(153, 102, 255, 0.2)",
+                  "rgba(201, 203, 207, 0.2)",
+                ],
 
-              order: 2
-
-            }]
-
+                order: 2,
+              },
+            ],
           },
           options: {
             scales: {
-              xAxes: [{
-                ticks: {
-                  min: 0,
-                  stepSize: 1
-                }
-              }],
-              yAxes: [{
-                ticks: {
-                  max: 20,
-                  beginAtZero: true
-                }
-              }]
-            }
+              xAxes: [
+                {
+                  ticks: {
+                    min: 0,
+                    stepSize: 1,
+                  },
+                },
+              ],
+              yAxes: [
+                {
+                  ticks: {
+                    max: 20,
+                    beginAtZero: true,
+                  },
+                },
+              ],
+            },
           },
         });
       }
     }
-  })
+  });
