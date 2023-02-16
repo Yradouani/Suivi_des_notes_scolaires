@@ -42,3 +42,5 @@ export function isValidMail(mail) {
     console.log(EMAIL_REGEX.test(mail))
     return EMAIL_REGEX.test(mail);
 }
+
+
