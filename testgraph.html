@@ -13,14 +13,33 @@
 
   <script type="module">
     import { mathClassAverage, frenchClassAverage, historyClassAverage, physicalClassAverage, englishClassAverage } from './js/controller.js';
-
+    let mathAverage = mathClassAverage();
+    let frenchAverage = frenchClassAverage();
+    let historyAverage = historyClassAverage();
+    let physiqueAverage = physicalClassAverage();
+    let englishAverage = englishClassAverage();
+    mathAverage.then((res) => {
+      arrayAverage.push(res);
+    });
+    frenchAverage.then((res) => {
+      arrayAverage.push(res);
+    });
+    historyAverage.then((res) => {
+      arrayAverage.push(res);
+    });
+    physiqueAverage.then((res) => {
+      arrayAverage.push(res);
+    });
+    englishAverage.then((res) => {
+      arrayAverage.push(res);
+    });
     async function createChart() {
       const mathAverage = await mathClassAverage();
       const frenchAverage = await frenchClassAverage();
       const historyAverage = await historyClassAverage();
       const physicalAverage = await physicalClassAverage();
       const englishAverage = await englishClassAverage();
-   
+
       const ctx = document.getElementById('myChart').getContext('2d');
 
       const chart = new Chart(ctx, {
@@ -29,7 +48,7 @@
           labels: ['Mathématiques', 'Français', 'Histoire', 'Physique', 'Anglais'],
           datasets: [{
             label: 'Moyenne de l\'élève',
-            data: [12,13,13,13,14],
+            data: arrayAverage,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(255, 99, 132, 0.2)',
@@ -55,7 +74,7 @@
               'rgba(54, 162, 235, 0.2)',
               'rgba(54, 162, 235, 0.2)',
               'rgba(54, 162, 235, 0.2)',
-              
+
             ],
             borderColor: [
               'rgba(255, 99, 132, 1)',

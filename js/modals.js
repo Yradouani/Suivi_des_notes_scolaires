@@ -213,7 +213,74 @@ for (let i = 0; i < chart.length; i++) {
     });
   }
 }
+// Modal graph moyenne générale de l'éléves 
+const ctx2 = document.getElementById("myChart2");
+const chart2 = document.querySelectorAll(".chartButton2");
+type = "module";
+async function createChart() {
+  const mathAverage = await mathClassAverage();
+  const frenchAverage = await frenchClassAverage();
+  const historyAverage = await historyClassAverage();
+  const physicalAverage = await physicalClassAverage();
+  const englishAverage = await englishClassAverage();
 
+  const ctx = document.getElementById('myChart2').getContext('2d');
+  const chart = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Mathématiques', 'Français', 'Histoire', 'Physique', 'Anglais'],
+      datasets: [{
+        label: 'Moyenne de l\'élève',
+        data: [10,12,15,18,20],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+        ],
+        borderWidth: 2,
+        borderRadius: 5,
+      }, {
+        label: 'Moyennes de la classe',
+        data: [mathAverage, frenchAverage, historyAverage, physicalAverage, englishAverage],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+        ],
+        borderWidth: 2,
+        borderRadius: 5,
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+createChart();
 // // MODAL GRAPH INDIVIDUEL
 // const ctx = document.getElementById("myChart");
 // const chart = document.querySelectorAll(".chartButton");
