@@ -177,9 +177,9 @@ if (typeUser == "student") {
       let mathAverage = average(parseInt(mathSomme), parseInt(coefMathSomme));
       globalStudentAverage += parseFloat(mathAverage);
       document.querySelector(".maths").innerHTML += `
-      <td class="average-maths"><span>${mathAverage}</span></td>
+      <td class="average"><span>${mathAverage}</span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-average="${mathAverage}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
       `;
       // French
@@ -203,9 +203,9 @@ if (typeUser == "student") {
       );
       globalStudentAverage += parseFloat(frenchAverage);
       document.querySelector(".french").innerHTML += `
-      <td class="average-french"><span>${frenchAverage}</span></td>
+      <td class="average"><span>${frenchAverage}</span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-average="${frenchAverage}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
       `;
 
@@ -231,9 +231,9 @@ if (typeUser == "student") {
       englishAverage = englishAverage.toFixed(2);
       globalStudentAverage += parseFloat(englishAverage);
       document.querySelector(".english").innerHTML += `
-      <td class="average-english"><span>${englishAverage}<span></td>
+      <td class="average"><span>${englishAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-average="${englishAverage}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
       `;
 
@@ -260,9 +260,9 @@ if (typeUser == "student") {
       physiqueAverage = physiqueAverage.toFixed(2);
       globalStudentAverage += parseFloat(physiqueAverage);
       document.querySelector(".physique").innerHTML += `
-      <td class="average-physique"><span>${physiqueAverage}<span></td>
+      <td class="average"><span>${physiqueAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-average="${physiqueAverage}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
       `;
 
@@ -288,9 +288,9 @@ if (typeUser == "student") {
       historyAverage = historyAverage.toFixed(2);
       globalStudentAverage += parseFloat(historyAverage);
       document.querySelector(".history").innerHTML += `
-      <td class="average-history"><span>${historyAverage}<span></td>
+      <td class="average"><span>${historyAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-average="${historyAverage}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
       `;
     }
@@ -302,6 +302,7 @@ if (typeUser == "student") {
     function loadModals() {
       var script = document.createElement("script");
       script.src = "./js/modals.js";
+      script.type = "module";
       document.getElementsByTagName("body")[0].appendChild(script);
     }
     loadModals();
@@ -457,9 +458,9 @@ if (typeUser == "student") {
       let mathAverage = average(parseInt(mathSomme), parseInt(coefMathSomme));
       globalStudentAverage += parseFloat(mathAverage);
       document.querySelector(".maths").innerHTML += `
-        <td class="average-maths"><span>${mathAverage}</span></td>
+        <td class="average"><span>${mathAverage}</span></td>
         <td class="graph_link">
-        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-average="${mathAverage}"src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
 
       // French
@@ -483,9 +484,9 @@ if (typeUser == "student") {
       );
       globalStudentAverage += parseFloat(frenchAverage);
       document.querySelector(".french").innerHTML += `
-        <td class="average-french"><span>${frenchAverage}</span></td>
+        <td class="average"><span>${frenchAverage}</span></td>
         <td class="graph_link">
-        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-average="${frenchAverage}" src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
 
       // English
@@ -509,9 +510,9 @@ if (typeUser == "student") {
       );
       globalStudentAverage += parseFloat(englishAverage);
       document.querySelector(".english").innerHTML += `
-        <td class="average-english"><span>${englishAverage}<span></td>
+        <td class="average"><span>${englishAverage}<span></td>
         <td class="graph_link">
-        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-average="${englishAverage}" src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
 
       // Physique
@@ -537,9 +538,9 @@ if (typeUser == "student") {
       );
       globalStudentAverage += parseFloat(physiqueAverage);
       document.querySelector(".physique").innerHTML += `
-        <td class="average-physique"><span>${physiqueAverage}<span></td>
+        <td class="average"><span>${physiqueAverage}<span></td>
         <td class="graph_link">
-        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-average="${physiqueAverage}" src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
 
       // History
@@ -563,9 +564,9 @@ if (typeUser == "student") {
       );
       globalStudentAverage += parseFloat(historyAverage);
       document.querySelector(".history").innerHTML += `
-        <td class="average-history"><span>${historyAverage}<span></td>
+        <td class="average"><span>${historyAverage}<span></td>
         <td class="graph_link">
-        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-average="${historyAverage}" src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
 
       globalStudentAverage /= 5;
@@ -576,6 +577,7 @@ if (typeUser == "student") {
       function loadModals() {
         var script = document.createElement("script");
         script.src = "./js/modals.js";
+        script.type = "module";
         document.getElementsByTagName("body")[0].appendChild(script);
       }
       loadModals();
