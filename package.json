@@ -30,7 +30,10 @@
   },
   "dependencies": {
     "async": "^3.2.4",
+    "http-server": "^14.1.1",
     "isomorphic-fetch": "^3.0.0",
+    "jest-environment-selenium": "^2.1.2",
+    "selenium-webdriver": "^4.8.0",
     "xhr2": "^0.2.1"
   },
   "type": "module"
