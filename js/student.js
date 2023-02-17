@@ -288,6 +288,7 @@ if (typeUser == "student") {
     function loadModals() {
       var script = document.createElement("script");
       script.src = "./js/modals.js";
+      script.type = "module";
       document.getElementsByTagName("body")[0].appendChild(script);
     }
     loadModals();
@@ -531,6 +532,7 @@ if (typeUser == "student") {
       function loadModals() {
         var script = document.createElement("script");
         script.src = "./js/modals.js";
+        script.type = "module";
         document.getElementsByTagName("body")[0].appendChild(script);
       }
       loadModals();
