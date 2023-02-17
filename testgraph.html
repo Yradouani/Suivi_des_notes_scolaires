@@ -13,7 +13,6 @@
 
   <script type="module">
     import { mathClassAverage, frenchClassAverage, historyClassAverage, physicalClassAverage, englishClassAverage } from './js/controller.js';
-    // import Chart from 'chart.js/auto';
 
     async function createChart() {
       const mathAverage = await mathClassAverage();
@@ -21,7 +20,7 @@
       const historyAverage = await historyClassAverage();
       const physicalAverage = await physicalClassAverage();
       const englishAverage = await englishClassAverage();
-
+   
       const ctx = document.getElementById('myChart').getContext('2d');
 
       const chart = new Chart(ctx, {
@@ -30,13 +29,13 @@
           labels: ['Mathématiques', 'Français', 'Histoire', 'Physique', 'Anglais'],
           datasets: [{
             label: 'Moyenne de l\'élève',
-            data: [12, 14, 10, 8, 16],
+            data: [12,13,13,13,14],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 99, 132, 0.2)',
             ],
             borderColor: [
               'rgba(255, 99, 132, 1)',
@@ -45,16 +44,18 @@
               'rgba(75, 192, 192, 1)',
               'rgba(153, 102, 255, 1)',
             ],
-            borderWidth: 1
+            borderWidth: 2,
+            borderRadius: 5,
           }, {
             label: 'Moyennes de la classe',
             data: [mathAverage, frenchAverage, historyAverage, physicalAverage, englishAverage],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              
             ],
             borderColor: [
               'rgba(255, 99, 132, 1)',
@@ -63,7 +64,8 @@
               'rgba(75, 192, 192, 1)',
               'rgba(153, 102, 255, 1)',
             ],
-            borderWidth: 1
+            borderWidth: 2,
+            borderRadius: 5,
           }]
         },
         options: {
