@@ -6,8 +6,8 @@ import {
   historyClassAverage,
   physicalClassAverage,
   englishClassAverage,
-  globalAverage
-} from './controller.js';
+  globalAverage,
+} from "./controller.js";
 
 let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 let studentAverageContent = document.querySelector("#student-average");
@@ -175,11 +175,11 @@ if (typeUser == "student") {
         coefMathSomme += parseInt(coefMathGrades[j]);
       }
       let mathAverage = average(parseInt(mathSomme), parseInt(coefMathSomme));
-      globalStudentAverage += parseFloat(mathAverage)
+      globalStudentAverage += parseFloat(mathAverage);
       document.querySelector(".maths").innerHTML += `
-      <td class="average-maths"><span>${mathAverage}</span></td>
+      <td class="average"><span>${mathAverage}</span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-average="${mathAverage}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
       `;
       // French
@@ -197,12 +197,15 @@ if (typeUser == "student") {
           parseInt(frenchGrades[j][1]) * parseInt(coefFrenchGrades[j]);
         coefFrenchSomme += parseInt(coefFrenchGrades[j]);
       }
-      let frenchAverage = average(parseInt(frenchSomme), parseInt(coefFrenchSomme));
-      globalStudentAverage += parseFloat(frenchAverage)
+      let frenchAverage = average(
+        parseInt(frenchSomme),
+        parseInt(coefFrenchSomme)
+      );
+      globalStudentAverage += parseFloat(frenchAverage);
       document.querySelector(".french").innerHTML += `
-      <td class="average-french"><span>${frenchAverage}</span></td>
+      <td class="average"><span>${frenchAverage}</span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-average="${frenchAverage}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
       `;
 
@@ -221,13 +224,16 @@ if (typeUser == "student") {
           parseInt(englishGrades[j][1]) * parseInt(coefEnglishGrades[j]);
         coefEnglishSomme += parseInt(coefEnglishGrades[j]);
       }
-      let englishAverage = average(parseInt(englishSomme), parseInt(coefEnglishSomme));
+      let englishAverage = average(
+        parseInt(englishSomme),
+        parseInt(coefEnglishSomme)
+      );
       englishAverage = englishAverage.toFixed(2);
-      globalStudentAverage += parseFloat(englishAverage)
+      globalStudentAverage += parseFloat(englishAverage);
       document.querySelector(".english").innerHTML += `
-      <td class="average-english"><span>${englishAverage}<span></td>
+      <td class="average"><span>${englishAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-average="${englishAverage}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
       `;
 
@@ -247,13 +253,16 @@ if (typeUser == "student") {
           parseInt(physiqueGrades[j][1]) * parseInt(coefPhysiqueGrades[j]);
         coefPhysiqueSomme += parseInt(coefPhysiqueGrades[j]);
       }
-      let physiqueAverage = average(parseInt(physiqueSomme), parseInt(coefPhysiqueSomme));
+      let physiqueAverage = average(
+        parseInt(physiqueSomme),
+        parseInt(coefPhysiqueSomme)
+      );
       physiqueAverage = physiqueAverage.toFixed(2);
-      globalStudentAverage += parseFloat(physiqueAverage)
+      globalStudentAverage += parseFloat(physiqueAverage);
       document.querySelector(".physique").innerHTML += `
-      <td class="average-physique"><span>${physiqueAverage}<span></td>
+      <td class="average"><span>${physiqueAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-average="${physiqueAverage}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
       `;
 
@@ -272,22 +281,28 @@ if (typeUser == "student") {
           parseInt(historyGrades[j][1]) * parseInt(coefHistoryGrades[j]);
         coefHistorySomme += parseInt(coefHistoryGrades[j]);
       }
-      let historyAverage = average(parseInt(historySomme), parseInt(coefHistorySomme));
+      let historyAverage = average(
+        parseInt(historySomme),
+        parseInt(coefHistorySomme)
+      );
       historyAverage = historyAverage.toFixed(2);
-      globalStudentAverage += parseFloat(historyAverage)
+      globalStudentAverage += parseFloat(historyAverage);
       document.querySelector(".history").innerHTML += `
-      <td class="average-history"><span>${historyAverage}<span></td>
+      <td class="average"><span>${historyAverage}<span></td>
       <td class="graph_link">
-      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${userInfo.id}" src="./assets/stats.png" alt="graph_link" width="70">
+      <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-average="${historyAverage}" src="./assets/stats.png" alt="graph_link" width="70">
       </td>
       `;
     }
     globalStudentAverage /= 5;
-    studentAverageContent.innerHTML = `Moyenne générale : ${globalStudentAverage.toFixed(2)}`;
+    studentAverageContent.innerHTML = `Moyenne générale : ${globalStudentAverage.toFixed(
+      2
+    )}`;
 
     function loadModals() {
       var script = document.createElement("script");
       script.src = "./js/modals.js";
+      script.type = "module";
       document.getElementsByTagName("body")[0].appendChild(script);
     }
     loadModals();
@@ -424,7 +439,7 @@ if (typeUser == "student") {
           }
         }
       }
-      console.log(mathGrades)
+      console.log(mathGrades);
       // Maths
       console.log(mathGrades.length);
       for (let j = 0; j < mathGrades.length; j++) {
@@ -441,11 +456,11 @@ if (typeUser == "student") {
         coefMathSomme += parseInt(coefMathGrades[j]);
       }
       let mathAverage = average(parseInt(mathSomme), parseInt(coefMathSomme));
-      globalStudentAverage += parseFloat(mathAverage)
+      globalStudentAverage += parseFloat(mathAverage);
       document.querySelector(".maths").innerHTML += `
-        <td class="average-maths"><span>${mathAverage}</span></td>
+        <td class="average"><span>${mathAverage}</span></td>
         <td class="graph_link">
-        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Mathématiques" data-average="${mathAverage}"src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
 
       // French
@@ -463,12 +478,15 @@ if (typeUser == "student") {
           parseInt(frenchGrades[j][1]) * parseInt(coefFrenchGrades[j]);
         coefFrenchSomme += parseInt(coefFrenchGrades[j]);
       }
-      let frenchAverage = average(parseInt(frenchSomme), parseInt(coefFrenchSomme));
-      globalStudentAverage += parseFloat(frenchAverage)
+      let frenchAverage = average(
+        parseInt(frenchSomme),
+        parseInt(coefFrenchSomme)
+      );
+      globalStudentAverage += parseFloat(frenchAverage);
       document.querySelector(".french").innerHTML += `
-        <td class="average-french"><span>${frenchAverage}</span></td>
+        <td class="average"><span>${frenchAverage}</span></td>
         <td class="graph_link">
-        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Français" data-average="${frenchAverage}" src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
 
       // English
@@ -486,12 +504,15 @@ if (typeUser == "student") {
           parseInt(englishGrades[j][1]) * parseInt(coefEnglishGrades[j]);
         coefEnglishSomme += parseInt(coefEnglishGrades[j]);
       }
-      let englishAverage = average(parseInt(englishSomme), parseInt(coefEnglishSomme));
-      globalStudentAverage += parseFloat(englishAverage)
+      let englishAverage = average(
+        parseInt(englishSomme),
+        parseInt(coefEnglishSomme)
+      );
+      globalStudentAverage += parseFloat(englishAverage);
       document.querySelector(".english").innerHTML += `
-        <td class="average-english"><span>${englishAverage}<span></td>
+        <td class="average"><span>${englishAverage}<span></td>
         <td class="graph_link">
-        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Anglais" data-average="${englishAverage}" src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
 
       // Physique
@@ -511,12 +532,15 @@ if (typeUser == "student") {
           parseInt(physiqueGrades[j][1]) * parseInt(coefPhysiqueGrades[j]);
         coefPhysiqueSomme += parseInt(coefPhysiqueGrades[j]);
       }
-      let physiqueAverage = average(parseInt(physiqueSomme), parseInt(coefPhysiqueSomme));
-      globalStudentAverage += parseFloat(physiqueAverage)
+      let physiqueAverage = average(
+        parseInt(physiqueSomme),
+        parseInt(coefPhysiqueSomme)
+      );
+      globalStudentAverage += parseFloat(physiqueAverage);
       document.querySelector(".physique").innerHTML += `
-        <td class="average-physique"><span>${physiqueAverage}<span></td>
+        <td class="average"><span>${physiqueAverage}<span></td>
         <td class="graph_link">
-        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Physique" data-average="${physiqueAverage}" src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
 
       // History
@@ -534,21 +558,26 @@ if (typeUser == "student") {
           parseInt(historyGrades[j][1]) * parseInt(coefHistoryGrades[j]);
         coefHistorySomme += parseInt(coefHistoryGrades[j]);
       }
-      let historyAverage = average(parseInt(historySomme), parseInt(coefHistorySomme));
-      globalStudentAverage += parseFloat(historyAverage)
+      let historyAverage = average(
+        parseInt(historySomme),
+        parseInt(coefHistorySomme)
+      );
+      globalStudentAverage += parseFloat(historyAverage);
       document.querySelector(".history").innerHTML += `
-        <td class="average-history"><span>${historyAverage}<span></td>
+        <td class="average"><span>${historyAverage}<span></td>
         <td class="graph_link">
-        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-student="${paramValue}" src="./assets/stats.png" alt="graph_link" width="70">
+        <input type="image" class="chartButton" data-bs-toggle="modal" data-bs-target="#staticSubject" data-subject="Histoire" data-average="${historyAverage}" src="./assets/stats.png" alt="graph_link" width="70">
         </td>`;
 
-
       globalStudentAverage /= 5;
-      studentAverageContent.innerHTML = `Moyenne générale : ${globalStudentAverage.toFixed(2)}`;
+      studentAverageContent.innerHTML = `Moyenne générale : ${globalStudentAverage.toFixed(
+        2
+      )}`;
 
       function loadModals() {
         var script = document.createElement("script");
         script.src = "./js/modals.js";
+        script.type = "module";
         document.getElementsByTagName("body")[0].appendChild(script);
       }
       loadModals();
@@ -586,10 +615,9 @@ deconnectionBtn.addEventListener("click", () => {
   window.location.href = "../index.html";
 });
 
-
-mathClassAverage()
-frenchClassAverage()
-historyClassAverage()
-physicalClassAverage()
-englishClassAverage()
-globalAverage()
+mathClassAverage();
+frenchClassAverage();
+historyClassAverage();
+physicalClassAverage();
+englishClassAverage();
+globalAverage();

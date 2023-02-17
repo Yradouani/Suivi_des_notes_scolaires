@@ -1,3 +1,12 @@
+// // Averages in each subject
+import {
+  mathClassAverage,
+  frenchClassAverage,
+  historyClassAverage,
+  physicalClassAverage,
+  englishClassAverage,
+} from "./controller.js";
+
 let type = document.getElementById("type");
 let date = document.getElementById("date");
 let grade = document.getElementById("grade");
@@ -121,75 +130,163 @@ for (let i = 0; i < grades.length; i++) {
 const ctx = document.getElementById("myChart");
 const chart = document.querySelectorAll(".chartButton");
 
-fetch("./server/grades.json")
-  .then((response) => response.json())
-  .then((data) => {
-    let graphik = null;
-    for (let i = 0; i < chart.length; i++) {
-      chart[i].addEventListener("click", graph);
-      function graph() {
-        const labels = [];
-        const values = [];
-        data
-          .filter(
-            (grade) =>
-              grade.subject == chart[i].dataset.subject &&
-              grade.id_student == chart[i].dataset.student
-          )
-          .forEach((grade) => {
-            console.log(chart[i].dataset.student);
-            labels.push(grade.date);
-            values.push(grade.value);
-            console.log(grade);
-          });
+let arrayAverage = [];
+let graphik = null;
+let mathAverage = mathClassAverage();
+let frenchAverage = frenchClassAverage();
+let historyAverage = historyClassAverage();
+let physiqueAverage = physicalClassAverage();
+let englishAverage = englishClassAverage();
 
-        if (graphik) {
-          graphik.destroy();
-        }
-        ctx.innerHTML = '<canvas id="myChart"></canvas>';
-        graphik = new Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: labels,
-            datasets: [
-              {
-                label: "Notes",
-                data: values,
-                backgroundColor: [
-                  "rgba(255, 99, 132, 0.2)",
-                  "rgba(255, 159, 64, 0.2)",
-                  "rgba(255, 205, 86, 0.2)",
-                  "rgba(75, 192, 192, 0.2)",
-                  "rgba(54, 162, 235, 0.2)",
-                  "rgba(153, 102, 255, 0.2)",
-                  "rgba(201, 203, 207, 0.2)",
-                ],
+mathAverage.then((res) => {
+  arrayAverage.push(res);
+});
+frenchAverage.then((res) => {
+  arrayAverage.push(res);
+});
+historyAverage.then((res) => {
+  arrayAverage.push(res);
+});
+physiqueAverage.then((res) => {
+  arrayAverage.push(res);
+});
+englishAverage.then((res) => {
+  arrayAverage.push(res);
+});
 
-                order: 2,
-              },
-            ],
-          },
-          options: {
-            scales: {
-              xAxes: [
-                {
-                  ticks: {
-                    min: 0,
-                    stepSize: 1,
-                  },
-                },
-              ],
-              yAxes: [
-                {
-                  ticks: {
-                    max: 20,
-                    beginAtZero: true,
-                  },
-                },
-              ],
-            },
-          },
-        });
-      }
+console.log(arrayAverage);
+
+for (let i = 0; i < chart.length; i++) {
+  chart[i].addEventListener("click", graph);
+  function graph() {
+    // averageStudent = document.querySelectorAll(".average");
+    // console.log(averageStudent[i].firstChild.innerText);
+
+    var dataStudent = {
+      label: "Moyenne étudiant",
+      data: [chart[i].dataset.average],
+      backgroundColor: "rgb(60, 179, 113)",
+      borderColor: "rgb(39,79,76)",
+      borderWidth: 1,
+    };
+
+    var dataClass = {
+      label: "Moyenne classe",
+      data: arrayAverage,
+      backgroundColor: "rgb(0, 0, 255)",
+      borderColor: "rgb(40,161,130)",
+      borderWidth: 1,
+    };
+
+    if (graphik) {
+      graphik.destroy();
     }
-  });
+
+    ctx.innerHTML = '<canvas id="myChart"></canvas>';
+    graphik = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["Ma moyenne et celle de la classe"],
+        datasets: [dataStudent, dataClass],
+      },
+      options: {
+        scales: {
+          xAxes: [
+            {
+              barPercentage: 0.2,
+              // barThickness: 70,
+            },
+          ],
+          yAxes: [
+            {
+              display: true,
+              ticks: {
+                beginAtZero: true,
+                steps: 1,
+                stepValue: 5,
+                max: 20,
+              },
+            },
+          ],
+        },
+      },
+    });
+  }
+}
+
+// // MODAL GRAPH INDIVIDUEL
+// const ctx = document.getElementById("myChart");
+// const chart = document.querySelectorAll(".chartButton");
+
+// fetch("./server/grades.json")
+//   .then((response) => response.json())
+//   .then((data) => {
+//     let graphik = null;
+//     for (let i = 0; i < chart.length; i++) {
+//       chart[i].addEventListener("click", graph);
+//       function graph() {
+//         const labels = [];
+//         const values = [];
+//         data
+//           .filter(
+//             (grade) =>
+//               grade.subject == chart[i].dataset.subject &&
+//               grade.id_student == chart[i].dataset.student
+//           )
+//           .forEach((grade) => {
+//             console.log(chart[i].dataset.student);
+//             labels.push(grade.date);
+//             values.push(grade.value);
+//             console.log(grade);
+//           });
+
+//         if (graphik) {
+//           graphik.destroy();
+//         }
+//         ctx.innerHTML = '<canvas id="myChart"></canvas>';
+//         graphik = new Chart(ctx, {
+//           type: "bar",
+//           data: {
+//             labels: labels,
+//             datasets: [
+//               {
+//                 label: "Notes",
+//                 data: values,
+//                 backgroundColor: [
+//                   "rgba(255, 99, 132, 0.2)",
+//                   "rgba(255, 159, 64, 0.2)",
+//                   "rgba(255, 205, 86, 0.2)",
+//                   "rgba(75, 192, 192, 0.2)",
+//                   "rgba(54, 162, 235, 0.2)",
+//                   "rgba(153, 102, 255, 0.2)",
+//                   "rgba(201, 203, 207, 0.2)",
+//                 ],
+
+//                 order: 2,
+//               },
+//             ],
+//           },
+//           options: {
+//             scales: {
+//               xAxes: [
+//                 {
+//                   ticks: {
+//                     min: 0,
+//                     stepSize: 1,
+//                   },
+//                 },
+//               ],
+//               yAxes: [
+//                 {
+//                   ticks: {
+//                     max: 20,
+//                     beginAtZero: true,
+//                   },
+//                 },
+//               ],
+//             },
+//           },
+//         });
+//       }
+//     }
+//   });
