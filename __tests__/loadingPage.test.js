@@ -29,7 +29,7 @@ describe('test du chargement d\'une page', () => {
         server.close();
     });
 
-    test('la page se charge avec succès', async () => {
+    test('success loading page', async () => {
         await driver.get('http://localhost:8080/index.html'); // l'URL du site local
         const title = await driver.getTitle();
         expect(title).toEqual('Connexion');
