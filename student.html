@@ -20,14 +20,14 @@
 </head>
 
 <body class="min-vh-100">
-    <script> 
-    //  Restricted access : if no connection (= empty local storage) then redirection
+    <script>
+        //  Restricted access : if no connection (= empty local storage) then redirection
         let storage = localStorage.length;
         // console.log(storage);
         if (storage == 0) {
             window.location.href = "./index.html";
         }
-        </script>
+    </script>
 
     <header class="d-flex justify-content-between align-items-center p-2">
         <img src="./assets/logo.png" alt="logoSite" class="logo">
@@ -38,8 +38,8 @@
             </div>
         </div>
         <div class="choice d-flex flex-column align-items-center py-5" id="teacherButtonHeader">
-                <!-- Radio buttons injected dynamically if teacher is connected -->
-            </div>
+            <!-- Radio buttons injected dynamically if teacher is connected -->
+        </div>
         </div>
         <button id="logoutBtn">
             <i class="bi bi-x-circle-fill text-danger" class="img-fluid" style="font-size:40px"></i>
@@ -57,7 +57,10 @@
             <div id="table_title" class="pinkLine d-flex justify-content-around p-3">
                 <div id="student-average"></div>
                 <!-- Vers modal -->
-                <button type="btn" class="btn-progress" class="chartButton2" data-bs-toggle="modal" data-bs-target="#staticSubject2" >Me situer dans la classe</button>
+
+                <button type="btn" id="btnAverageClass" data-bs-toggle="modal" data-bs-target="#modalAverages"
+                    data-classaverage="">Me situer dans la classe</button>
+
             </div>
             <table class="table">
                 <thead class="w-100">
@@ -166,10 +169,10 @@
         </div>
     </div>
     </div>
-
-
     <!--END MODAL DETAIL GRADE -->
-    <!-- MODAL STATISTIC GRADE -->
+
+
+    <!-- MODAL STATISTIC AVERAGE BY SUBJECT-->
     <!-- Modal -->
     <div class="modal fade" id="staticSubject" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -182,23 +185,29 @@
                     <canvas id="myChart"></canvas>
                 </div>
 
+            </div>
+        </div>
+    </div>
+    <!-- END MODAL STATISTIC BY SUBJECT -->
 
+
+    <!-- MODAL STATISTIC AVERAGE BY STUDENT-->
+    <!-- Modal -->
+    <div class="modal fade" id="modalAverages" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg w-75">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div>
+                    <canvas id="myChart2"></canvas>
+                </div>
 
             </div>
         </div>
     </div>
-    <!-- END MODAL STATISTIC GRADE -->
-    <div class="modal fade" id="staticSubject2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg w-50">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div>
-                <canvas id="myChart2"></canvas>
-            </div>
-
+    <!-- END MODAL STATISTIC AVERAGE BY STUDENT-->
 
 
         </div>
@@ -225,4 +234,3 @@
 </body>
 
 </html>
-
