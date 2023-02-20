@@ -1,18 +1,31 @@
+//  Restricted access : if no connection (= empty local storage) then redirection
+let storage = localStorage.length;
+// console.log(storage);
+if (storage == 0) {
+  window.location.href = "./index.html";
+}
+//  Restricted access to this page : if a student attempts to access : redirection
+let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+let typeUser = userInfo.type;
+if (typeUser == "student") {
+  window.location.href = "./student.html";
+}
+
 import {
   isValidValue,
   isValidDate,
   isDateBeforeToday,
   isValidComment,
   isValidGradeType,
-  isValidGradeSubject
-} from './controller.js';
+  isValidGradeSubject,
+} from "./controller.js";
 
 let studentsCardsContent = document.querySelector("#students-cards-content");
 let deconnectionBtn = document.querySelector("#logoutBtn");
 
 fetch("../server/students.json")
-  .then(response => response.json())
-  .then(xmlDoc => {
+  .then((response) => response.json())
+  .then((xmlDoc) => {
     console.log(xmlDoc);
     let lastId = xmlDoc[xmlDoc.length];
     console.log("le dernier id est : " + lastId);
@@ -51,15 +64,19 @@ fetch("../server/students.json")
         let commentInput = document.querySelector("#comment");
 
         validateGradeBtn.addEventListener("click", () => {
-         
-
           fetch("../server/grades.json")
-            .then(response => response.json())
-            .then(xmlGrade => {
-
+            .then((response) => response.json())
+            .then((xmlGrade) => {
               var gradesNumber = xmlGrade.length;
 
-              if (isValidValue(gradeInput.value) && isValidDate(dateInput.value) && isDateBeforeToday(dateInput.value) && isValidComment(commentInput.value) && isValidGradeType(type.value) && isValidGradeSubject(subject.value)) {
+              if (
+                isValidValue(gradeInput.value) &&
+                isValidDate(dateInput.value) &&
+                isDateBeforeToday(dateInput.value) &&
+                isValidComment(commentInput.value) &&
+                isValidGradeType(type.value) &&
+                isValidGradeSubject(subject.value)
+              ) {
                 let gradeInfo = {
                   id: gradesNumber + 1,
                   value: gradeInput.value,
@@ -70,7 +87,7 @@ fetch("../server/students.json")
                   subject: subject.value,
                   comments: commentInput.value,
                 };
-                console.log(gradeInfo)
+                console.log(gradeInfo);
                 // Envoi de la requête au serveur
                 fetch("http://127.0.0.1:8000/json.php", {
                   method: "POST",
@@ -82,19 +99,17 @@ fetch("../server/students.json")
                 })
                   .then((res) => {
                     console.log(res);
-                        type.value = "";
-                        subject.value = "";
-                        dateInput.value = "";
-                        gradeInput.value = "";
-                        commentInput.value = "";
+                    type.value = "";
+                    subject.value = "";
+                    dateInput.value = "";
+                    gradeInput.value = "";
+                    commentInput.value = "";
                   })
                   .catch((err) => {
                     console.log(err);
                   });
               } else {
-
               }
-
             });
         });
       });
@@ -103,20 +118,21 @@ fetch("../server/students.json")
 
 // Affichage de la photo du professeur dynamiquement
 fetch("../teachers.json")
-  .then(response => response.json())
-  .then(json => {
+  .then((response) => response.json())
+  .then((json) => {
     let userInfo = JSON.parse(localStorage.getItem("userInfo"));
     for (let i = 0; i < json.length; i++) {
       if (json[i].id == userInfo.id) {
-        document.querySelector("#picAndLogout").innerHTML += `<img src=${json[i].picture} alt="student picture" class="img-fluid rounded-circle"> <div id="name-content">${json[i].firstname} ${json[i].lastname}</div>`;
+        document.querySelector(
+          "#picAndLogout"
+        ).innerHTML += `<img src=${json[i].picture} alt="student picture" class="img-fluid rounded-circle"> <div id="name-content">${json[i].firstname} ${json[i].lastname}</div>`;
       }
     }
   })
-  .catch(error => console.log(error));
+  .catch((error) => console.log(error));
 
 // --------------Deconnection------------------
 deconnectionBtn.addEventListener("click", () => {
   localStorage.removeItem("userInfo");
   window.location.href = "../index.html";
 });
-

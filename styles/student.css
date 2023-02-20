@@ -48,10 +48,7 @@ body {
             display: flex;
             justify-content: center;
         }
-        /* .average-maths, .average-maths{
-            display: flex;
-        } */
-        
+     
         .coef-content-math,
         .coef-content-history,
         .coef-content-english,
@@ -185,11 +182,7 @@ th, td {
     display: none;
 }
 
-.average-maths,
-.average-history,
-.average-english,
-.average-physique,
-.average-french {
+.average{
     display: none;
 }
 
