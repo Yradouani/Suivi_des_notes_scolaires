@@ -231,8 +231,6 @@ for (let i = 0; i < chart.length; i++) {
   arrayAverageStudent.push(chart[i].dataset.average);
 }
 arrayAverageStudent.push(btnAverageClass.dataset.classaverage)
-console.log(arrayAverageStudent);
-console.log(arrayAverage)
 
 btnAverageClass.addEventListener("click", graph2);
 function graph2() {
