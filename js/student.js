@@ -49,7 +49,7 @@ let physiqueSomme = 0;
 let coefPhysiqueSomme = 0;
 let historySomme = 0;
 let coefHistorySomme = 0;
-let globalStudentAverage = 0;
+export let globalStudentAverage = 0;
 
 // let studentController = require('./controllerStudent');
 
@@ -305,7 +305,6 @@ if (typeUser == "student") {
     studentAverageContent.innerHTML = `Moyenne générale : ${globalStudentAverage.toFixed(
       2
     )}`;
-
     function loadModals() {
       var script = document.createElement("script");
       script.src = "./js/modals.js";
@@ -572,6 +571,11 @@ if (typeUser == "student") {
       studentAverageContent.innerHTML = `Moyenne générale : ${globalStudentAverage.toFixed(
         2
       )}`;
+
+
+      const btnAverageClass = document.querySelector('#btnAverageClass');
+      btnAverageClass.setAttribute('data-classaverage', globalStudentAverage.toFixed(2));
+
 
       function loadModals() {
         var script = document.createElement("script");

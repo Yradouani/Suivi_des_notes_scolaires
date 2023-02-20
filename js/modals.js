@@ -5,7 +5,10 @@ import {
   historyClassAverage,
   physicalClassAverage,
   englishClassAverage,
+  globalAverage
 } from "./controller.js";
+
+import { globalStudentAverage } from "./student.js";
 
 let type = document.getElementById("type");
 let date = document.getElementById("date");
@@ -137,6 +140,7 @@ let frenchAverage = frenchClassAverage();
 let historyAverage = historyClassAverage();
 let physiqueAverage = physicalClassAverage();
 let englishAverage = englishClassAverage();
+let globalClassAverage = globalAverage();
 
 mathAverage.then((res) => {
   arrayAverage.push(res);
@@ -151,6 +155,9 @@ physiqueAverage.then((res) => {
   arrayAverage.push(res);
 });
 englishAverage.then((res) => {
+  arrayAverage.push(res);
+});
+globalClassAverage.then((res) => {
   arrayAverage.push(res);
 });
 
@@ -223,7 +230,7 @@ let btnAverageClass = document.getElementById("btnAverageClass");
 for (let i = 0; i < chart.length; i++) {
   arrayAverageStudent.push(chart[i].dataset.average);
 }
-console.log(arrayAverage);
+arrayAverageStudent.push(btnAverageClass.dataset.classaverage)
 
 btnAverageClass.addEventListener("click", graph2);
 function graph2() {
@@ -247,7 +254,7 @@ function graph2() {
   graphik = new Chart(ctx2, {
     type: "bar",
     data: {
-      labels: ["Mathématiques", "Français", "Anglais", "Physique", "Histoire"],
+      labels: ["Mathématiques", "Français", "Anglais", "Physique", "Histoire", "Moyenne générale"],
       datasets: [dataStudent2, dataClass2],
     },
     options: {
