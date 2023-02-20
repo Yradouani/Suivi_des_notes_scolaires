@@ -1,3 +1,10 @@
+//  Restricted access : if no connection (= empty local storage) then redirection
+let storage = localStorage.length;
+// console.log(storage);
+if (storage == 0) {
+  window.location.href = "./index.html";
+}
+
 //--------Displaying student picture--------------
 import {
   average,
@@ -318,16 +325,8 @@ if (typeUser == "student") {
 
   // Restricted access to trombi buttons in header
   let teacherButtonHeader = document.getElementById("teacherButtonHeader");
-  teacherButtonHeader.innerHTML = `     <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
- <label class="btn btn-secondary active">
-     <input type="radio" name="filter1" id="filter1-0" checked> Students
- </label>
- <label class="btn btn-secondary">
-     <input type="radio" name="filter1" class="filter" id="filter1-1">
+  teacherButtonHeader.innerHTML = `<label class="btn btn-secondary">
      <a href="teacher.html">Trombinoscope</a>
- </label>
- <label class="btn btn-secondary">
-     <input type="radio" name="filter1" id="filter1-2"> Log out
  </label>`;
 
   var xhr2 = new XMLHttpRequest();

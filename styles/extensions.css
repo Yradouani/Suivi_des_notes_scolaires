@@ -65,7 +65,8 @@ footer {
 
 /* Responsive */
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 680px) {
+
     /* Styles pour cette Media Queries */
     header {
         background-image: url(../assets/school-top.jpg);
@@ -80,7 +81,10 @@ footer {
         width: 10%;
         border-radius: 50%;
     }
-    
+    .logo {
+    display: none !important;
+    }
+
     #logoutBtn {
         border: none;
         background-color: transparent;
@@ -114,7 +118,7 @@ footer {
     }
 
     #motto {
-        display:none;
+        display:none !important;
     }
     
     footer {

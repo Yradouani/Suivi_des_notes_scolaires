@@ -11,23 +11,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- Our CSS -->
     <link rel="stylesheet" href="/styles/modal.css">
-    <link rel="stylesheet" href="./styles/student.css">
-    <link rel="stylesheet" href="./styles/extensions.css">
-    <link rel="stylesheet" href="./styles/stylebutton.css">
+    <link rel="stylesheet" href="/styles/student.css">
+    <link rel="stylesheet" href="/styles/extensions.css">
+    <link rel="stylesheet" href="/styles/stylebutton.css">
     <link rel="icon" href="/assets/logo.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" src="index.js"></script>
     <title>Student page</title>
 </head>
 
 <body class="min-vh-100">
-    <script>
-        //  Restricted access : if no connection (= empty local storage) then redirection
-        let storage = localStorage.length;
-        // console.log(storage);
-        if (storage == 0) {
-            window.location.href = "./index.html";
-        }
-    </script>
+
 
     <header class="d-flex justify-content-between align-items-center p-2">
         <img src="./assets/logo.png" alt="logoSite" class="logo">
@@ -38,13 +31,12 @@
             </div>
         </div>
         <div class="choice d-flex flex-column align-items-center py-5" id="teacherButtonHeader">
-            <!-- Radio buttons injected dynamically if teacher is connected -->
-        </div>
-        </div>
+                <!-- Radio buttons injected dynamically if teacher is connected -->
+            </div>
+
         <button id="logoutBtn">
             <i class="bi bi-x-circle-fill text-danger" class="img-fluid" style="font-size:40px"></i>
         </button>
-        </div>
     </header>
 
     <!-- Scholar report -->
@@ -189,7 +181,6 @@
         </div>
     </div>
     <!-- END MODAL STATISTIC BY SUBJECT -->
-
 
     <!-- MODAL STATISTIC AVERAGE BY STUDENT-->
     <!-- Modal -->
